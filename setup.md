@@ -5,7 +5,7 @@ title: Setup
 ## Code Setup 
 We will be using an example project in the lesson. 
 Download the file using the link below and extract it to your computer:
- - [zip file of example project](https://github.com/bham-carpentries/astronaut-data-analysis-r/archive/refs/tags/v1.0.0.zip).
+ - [zip file of example project](https://github.com/bham-carpentries/astronaut-data-analysis-for-r/archive/refs/tags/v0.0.1.zip).
 
 
 ## Software Setup
