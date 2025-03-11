@@ -884,7 +884,7 @@ little better:</p>
 <span id="cb3-13"><a href="#cb3-13" tabindex="-1"></a><span class="ot">]</span></span></code></pre>
 </div>
 <ol start="2" style="list-style-type: decimal">
-<li>an R script (<code>my_code_v2.py</code>) containing some analysis.
+<li>an R script (<code>my_code_v2.R</code>) containing some analysis.
 The first few lines are:</li>
 </ol>
 <div class="codewrapper sourceCode" id="cb4">
@@ -1217,9 +1217,9 @@ create more readable code.</p>
 <p>Let’s start by removing any files or folders that are not needed in
 our project directory.</p>
 <div class="codewrapper sourceCode" id="cb1">
-<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode r" tabindex="0"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a>rm <span class="sc">-</span>r astronaut<span class="sc">-</span>data<span class="sc">-</span>analyses<span class="sc">-</span>old</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">rm</span> <span class="at">-r</span> astronaut-data-analyses-old</span></code></pre>
 </div>
 </section><section><h2 class="section-heading" id="use-meaningful-file-names">Use meaningful file names<a class="anchor" aria-label="anchor" href="#use-meaningful-file-names"></a>
 </h2>
@@ -1715,9 +1715,9 @@ updated.</p>
 <h3 class="callout-title">Add comments to our code</h3>
 <div class="callout-content">
 <ol style="list-style-type: lower-alpha">
-<li><p>Examine <code>eva_data_analysis.py</code>. Add as many comments
-as you think is required to help yourself and others understand what
-that code is doing.</p></li>
+<li><p>Examine <code>eva_data_analysis.R</code>. Add as many comments as
+you think is required to help yourself and others understand what that
+code is doing.</p></li>
 <li><p>Add as many print statements as you think is required to keep the
 user informed about what the code is doing as it runs.</p></li>
 </ol>
@@ -3186,7 +3186,7 @@ these details.</function_name></package_name></p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>plot_cumulative_time_in_space &lt;- function(tdf, graph_file) {</p>
 <p>time_in_space_plot &lt;- tdf |&gt; dplyr::rowwise() |&gt;
@@ -3504,7 +3504,7 @@ package next time it is built.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li>Build and install the package</li>
