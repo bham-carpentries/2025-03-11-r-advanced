@@ -49,7 +49,7 @@ TODO
 ## Remove unused files and folders
 Let's start by removing any files or folders that are not needed in our project directory.
 
-```r
+```bash
 rm -r astronaut-data-analyses-old
 ```
 
@@ -473,7 +473,7 @@ The date in the comment also indicates when the code might need to be updated.
 
 ### Add comments to our code
 
-a. Examine `eva_data_analysis.py`.
+a. Examine `eva_data_analysis.R`.
 Add as many comments as you think is required to help yourself and others understand what that code is doing.
 
 b. Add as many print statements as you think is required to keep the user informed about what the code is doing as it runs.
