@@ -593,14 +593,23 @@ Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2</code></pre>
-<p>The following fields need to be updated: + <code>Package</code> - the
-name of the package. + <code>Title</code> - a short description of what
-the package does. + <code>Version</code> - the version number of the
-package. + <code>Authors@R</code> - the authors of the package. +
+<p>The following fields need to be updated:</p>
+<ul><li>
+<code>Package</code> - the name of the package.</li>
+<li>
+<code>Title</code> - a short description of what the package
+does.</li>
+<li>
+<code>Version</code> - the version number of the package.</li>
+<li>
+<code>Authors@R</code> - the authors of the package.</li>
+<li>
 <code>Description</code> - a longer description of what the package
-does. + <code>License</code> - the license under which the package code
-is distributed.</p>
-<pre><code>Package: spacewalks2
+does.</li>
+<li>
+<code>License</code> - the license under which the package code is
+distributed.</li>
+</ul><pre><code>Package: spacewalks2
 Title: Analysis of NASA's extravehicular activity datasets
 Version: 0.0.0.9000
 Authors@R: c(
@@ -913,10 +922,11 @@ functions:</p>
 </div>
 <div class="section level4">
 <h4 id="install-package">Install Package<a class="anchor" aria-label="anchor" href="#install-package"></a></h4>
-<p>The usual workflow for package development is to: + make some changes
-+ build and install the package + unload and reload the package (often
-in a new R session)</p>
-<p>The best way to install and reload a package in a fresh R session is
+<p>The usual workflow for package development is to:</p>
+<ul><li>make some changes</li>
+<li>build and install the package</li>
+<li>unload and reload the package (often in a new R session)</li>
+</ul><p>The best way to install and reload a package in a fresh R session is
 to use the 🔨 Clean and Install cammand tab in the Build panel which
 performs several steps in sequence to ensure a clean and correct
 result:</p>
@@ -958,19 +968,21 @@ this output in the Build panel output:</p>
 <p>An important part of the package development process is R CMD check.
 R CMD check automatically checks your code and can automatically detects
 many common problems that we’d otherwise discover the hard way.</p>
-<p>To check our package, we can: + use devtools::check() + click on the
-✅Check tab in the Build panel.</p>
-<p>This: + Ensures that the documentation is up-to-date by running
+<p>To check our package, we can:</p>
+<ul><li>use devtools::check()</li>
+<li>click on the ✅Check tab in the Build panel.</li>
+</ul><p>This: + Ensures that the documentation is up-to-date by running
 devtools::document(). + Bundles the package before checking it.</p>
 <p>More info on checks here.</p>
-<p>Both these run R CMD check which return three types of messages: +
-ERRORs: Severe problems that you should fix regardless of whether or not
-you’re submitting to CRAN. + WARNINGs: Likely problems that you must fix
-if you’re planning to submit to CRAN (and a good idea to look into even
-if you’re not). _ NOTEs: Mild problems. If you are submitting to CRAN,
-you should strive to eliminate all NOTEs, even if they are false
-positives. Let’s Check our package:</p>
-<div class="codewrapper sourceCode" id="cb23">
+<p>Both these run R CMD check which return three types of messages:</p>
+<ul><li>ERRORs: Severe problems that you should fix regardless of whether or
+not you’re submitting to CRAN.</li>
+<li>WARNINGs: Likely problems that you must fix if you’re planning to
+submit to CRAN (and a good idea to look into even if you’re not). _
+NOTEs: Mild problems. If you are submitting to CRAN, you should strive
+to eliminate all NOTEs, even if they are false positives. Let’s Check
+our package:</li>
+</ul><div class="codewrapper sourceCode" id="cb23">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1134,8 +1146,92 @@ time_in_space_plot) }</p>
 </div>
 </div>
 <p>We can update the rest of our functions as follows:</p>
-<p>Let’s run Check again:</p>
 <div class="codewrapper sourceCode" id="cb29">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">#' Read and Clean EVA Data from JSON</span></span>
+<span><span class="co">#'</span></span>
+<span><span class="co">#' This function reads EVA data from a JSON file, cleans it by converting</span></span>
+<span><span class="co">#' the 'eva' column to numeric, converting data from text to date format,</span></span>
+<span><span class="co">#. creating a year variable and removing rows with missing values, and sorts</span></span>
+<span><span class="co">#' the data by the 'date' column.</span></span>
+<span><span class="co">#'</span></span>
+<span><span class="co">#' @param input_file A character string specifying the path to the input JSON file.</span></span>
+<span><span class="co">#'</span></span>
+<span><span class="co">#' @return A cleaned and sorted data frame containing the EVA data.</span></span>
+<span><span class="co">#' @export</span></span>
+<span><span class="va">read_json_to_dataframe</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input_file</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="fu">print</span><span class="op">(</span><span class="st">"Reading JSON file"</span><span class="op">)</span></span>
+<span></span>
+<span>  <span class="va">eva_df</span> <span class="op">&lt;-</span> <span class="fu">jsonlite</span><span class="fu">::</span><span class="fu">fromJSON</span><span class="op">(</span><span class="va">input_file</span>, flatten <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu">dplyr</span><span class="fu">::</span><span class="fu">mutate</span><span class="op">(</span>eva <span class="op">=</span> <span class="fu">as.numeric</span><span class="op">(</span><span class="va">eva</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu">dplyr</span><span class="fu">::</span><span class="fu">mutate</span><span class="op">(</span>date <span class="op">=</span> <span class="fu">lubridate</span><span class="fu">::</span><span class="fu">ymd_hms</span><span class="op">(</span><span class="va">date</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu">dplyr</span><span class="fu">::</span><span class="fu">mutate</span><span class="op">(</span>year <span class="op">=</span> <span class="fu">lubridate</span><span class="fu">::</span><span class="fu">year</span><span class="op">(</span><span class="va">date</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu">tidyr</span><span class="fu">::</span><span class="fu">drop_na</span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu">dplyr</span><span class="fu">::</span><span class="fu">arrange</span><span class="op">(</span><span class="va">date</span><span class="op">)</span></span>
+<span></span>
+<span>  <span class="kw">return</span><span class="op">(</span><span class="va">eva_df</span><span class="op">)</span></span>
+<span><span class="op">}</span></span>
+<span></span>
+<span><span class="co">#' Convert Duration from HH:MM Format to Hours</span></span>
+<span><span class="co">#'</span></span>
+<span><span class="co">#' This function converts a duration in "HH:MM" format (as a character string)</span></span>
+<span><span class="co">#' into the total duration in hours (as a numeric value).</span></span>
+<span><span class="co">#'</span></span>
+<span><span class="co">#' @details</span></span>
+<span><span class="co">#' When applied to a vector, it will only process and return the first element</span></span>
+<span><span class="co">#' so this function must be applied to a data frame rowwise.</span></span>
+<span><span class="co">#'</span></span>
+<span><span class="co">#' @param duration A character string representing the duration in "HH:MM" format.</span></span>
+<span><span class="co">#'</span></span>
+<span><span class="co">#' @return A numeric value representing the duration in hours.</span></span>
+<span><span class="co">#'</span></span>
+<span><span class="co">#' @examples</span></span>
+<span><span class="co">#' text_to_duration("03:45")  # Returns 3.75 hours</span></span>
+<span><span class="co">#' text_to_duration("12:30")  # Returns 12.5 hours</span></span>
+<span><span class="co">#' @export</span></span>
+<span><span class="va">text_to_duration</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">duration</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="va">time_parts</span> <span class="op">&lt;-</span> <span class="fu">stringr</span><span class="fu">::</span><span class="fu">str_split</span><span class="op">(</span><span class="va">duration</span>, <span class="st">":"</span><span class="op">)</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span></span>
+<span>  <span class="va">hours</span> <span class="op">&lt;-</span> <span class="fu">as.numeric</span><span class="op">(</span><span class="va">time_parts</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span></span>
+<span>  <span class="va">minutes</span> <span class="op">&lt;-</span> <span class="fu">as.numeric</span><span class="op">(</span><span class="va">time_parts</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span><span class="op">)</span></span>
+<span>  <span class="va">duration_hours</span> <span class="op">&lt;-</span> <span class="va">hours</span> <span class="op">+</span> <span class="va">minutes</span> <span class="op">/</span> <span class="fl">60</span></span>
+<span>  <span class="kw">return</span><span class="op">(</span><span class="va">duration_hours</span><span class="op">)</span></span>
+<span><span class="op">}</span></span>
+<span></span>
+<span><span class="co">#' Plot Cumulative Time in Space Over the Years</span></span>
+<span><span class="co">#'</span></span>
+<span><span class="co">#' This function plots the cumulative time spent in space over the years based on</span></span>
+<span><span class="co">#' the data in the dataframe. The cumulative time is calculated by converting the</span></span>
+<span><span class="co">#' "duration" column into hours, then computing the cumulative sum of the duration.</span></span>
+<span><span class="co">#' The plot is saved as a PNG file at the specified location.</span></span>
+<span><span class="co">#'</span></span>
+<span><span class="co">#' @param tdf A dataframe containing a "duration" column in "HH:MM" format and a "date" column.</span></span>
+<span><span class="co">#' @param graph_file A character string specifying the path to save the graph.</span></span>
+<span><span class="co">#'</span></span>
+<span><span class="co">#' @return NULL</span></span>
+<span><span class="co">#' @export</span></span>
+<span><span class="va">plot_cumulative_time_in_space</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">tdf</span>, <span class="va">graph_file</span><span class="op">)</span> <span class="op">{</span></span>
+<span></span>
+<span>  <span class="va">time_in_space_plot</span> <span class="op">&lt;-</span> <span class="va">tdf</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu">dplyr</span><span class="fu">::</span><span class="fu">rowwise</span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu">dplyr</span><span class="fu">::</span><span class="fu">mutate</span><span class="op">(</span>duration_hours <span class="op">=</span> <span class="fu">text_to_duration</span><span class="op">(</span><span class="va">duration</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span>  <span class="co"># Add duration_hours column</span></span>
+<span>    <span class="fu">dplyr</span><span class="fu">::</span><span class="fu">ungroup</span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu">dplyr</span><span class="fu">::</span><span class="fu">mutate</span><span class="op">(</span>cumulative_time <span class="op">=</span> <span class="fu">cumsum</span><span class="op">(</span><span class="va">duration_hours</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span>     <span class="co"># Calculate cumulative time</span></span>
+<span>    <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu">ggplot</span><span class="op">(</span><span class="fu">ggplot2</span><span class="fu">::</span><span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">date</span>, y <span class="op">=</span> <span class="va">cumulative_time</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu">geom_line</span><span class="op">(</span>color <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu">labs</span><span class="op">(</span></span>
+<span>      x <span class="op">=</span> <span class="st">"Year"</span>,</span>
+<span>      y <span class="op">=</span> <span class="st">"Total time spent in space to date (hours)"</span>,</span>
+<span>      title <span class="op">=</span> <span class="st">"Cumulative Spacewalk Time"</span></span>
+<span>    <span class="op">)</span></span>
+<span></span>
+<span>  <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu">ggsave</span><span class="op">(</span><span class="va">graph_file</span>, width <span class="op">=</span> <span class="fl">8</span>, height <span class="op">=</span> <span class="fl">6</span>, plot <span class="op">=</span> <span class="va">time_in_space_plot</span><span class="op">)</span></span>
+<span></span>
+<span><span class="op">}</span></span></code></pre>
+</div>
+<p>Let’s run Check again:</p>
+<div class="codewrapper sourceCode" id="cb30">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1178,7 +1274,7 @@ flagging the fact that we are wanting to import functions from dplyr and
 other packages but have not yet declared the package as a dependency in
 the Imports field of the DESCRIPTION file.</p>
 <p>We can add dplyr and these other packages to Imports with:</p>
-<div class="codewrapper sourceCode" id="cb31">
+<div class="codewrapper sourceCode" id="cb32">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1247,7 +1343,7 @@ Imports:
     stringr,
     tidyr</code></pre>
 <p>Let’s do one final check.</p>
-<div class="codewrapper sourceCode" id="cb34">
+<div class="codewrapper sourceCode" id="cb35">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1364,7 +1460,7 @@ package next time it is built.</p>
 * DONE (spacewalks2)</code></pre>
 </div>
 <ol start="2" style="list-style-type: decimal"><li>Your <code>run_analysis.R</code> script should look like this:</li>
-</ol><div class="codewrapper sourceCode" id="cb38">
+</ol><div class="codewrapper sourceCode" id="cb39">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1421,8 +1517,8 @@ creating readable, reusable and reproducible projects.</li>
 </div>
 </section><section><h2 class="section-heading" id="attribution">Attribution<a class="anchor" aria-label="anchor" href="#attribution"></a></h2>
 <hr class="half-width"><p>This episode reuses material from pages <a href="https://annakrystalli.me/rrtools-repro-research/create-compendium.html" class="external-link">“Create
-a compendium”</a> and [“Manage functionality as a
-package“][rrr-with-rrtools-package] from <a href="https://annakrystalli.me/rrtools-repro-research/index.html" class="external-link">“Reproducible
+a compendium”</a> and <a href="https://annakrystalli.me/rrtools-repro-research/package.html" class="external-link">“Manage
+functionality as a package“</a> from <a href="https://annakrystalli.me/rrtools-repro-research/index.html" class="external-link">“Reproducible
 Research in R with rrtools”</a> by Anna Krystalli under <a href="https://creativecommons.org/licenses/by/4.0/" class="external-link">CC-BY-4.0</a>
 license with modifications. Sections covering git and github have been
 removed. Output has been modified to reflect the spacewalks case study

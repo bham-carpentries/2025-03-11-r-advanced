@@ -234,7 +234,16 @@
 
     <div id="flush-collapsecurrent" class="accordion-collapse collapse show" aria-labelledby="flush-headingcurrent" data-bs-parent="#accordionFlushcurrent">
       <div class="accordion-body">
-        <ul><li><a href="#further-reading">Further reading</a></li>
+        <ul><li><a href="#remove-unused-files-and-folders">Remove unused files and folders</a></li>
+<li><a href="#use-meaningful-file-names">Use meaningful file names</a></li>
+<li><a href="#place-library-statements-at-the-top">Place <code>library</code> statements at the top</a></li>
+<li><a href="#use-meaningful-variable-names">Use meaningful variable names</a></li>
+<li><a href="#use-standard-libraries">Use standard libraries</a></li>
+<li><a href="#use-comments-to-explain-functionality">Use comments to explain functionality</a></li>
+<li><a href="#separate-units-of-functionality">Separate units of functionality</a></li>
+<li><a href="#function-documentation">Function Documentation</a></li>
+<li><a href="#functions-for-modular-and-reusable-code-revisited.">Functions for modular and reusable code revisited.</a></li>
+<li><a href="#further-reading">Further reading</a></li>
 <li><a href="#attribution">Attribution</a></li>
         </ul></div><!--/div.accordion-body-->
     </div><!--/div.accordion-collapse-->
@@ -371,13 +380,6 @@ person who just joined the project reads my software, will they be able
 to understand what I have written here?”</p>
 <p>We will now learn about a few best practices we can follow to help
 create more readable code.</p>
-<div id="callout2" class="callout">
-<div class="callout-square">
-<i class="callout-icon" data-feather="bell"></i>
-</div>
-<div class="callout-inner">
-<h3 class="callout-title">Callout</h3>
-<div class="callout-content">
 <div id="accordionInstructor1" class="accordion instructor-note accordion-flush">
 <div class="accordion-item">
 <button class="accordion-button instructor-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstructor1" aria-expanded="false" aria-controls="collapseInstructor1">
@@ -392,19 +394,16 @@ should be as in:</p>
 </div>
 </div>
 </div>
-<div class="section level2">
-<h2 id="remove-unused-files-and-folders">Remove unused files and folders<a class="anchor" aria-label="anchor" href="#remove-unused-files-and-folders"></a></h2>
-<p>Let’s start by removing any files or folders that are not needed in
+<section><h2 class="section-heading" id="remove-unused-files-and-folders">Remove unused files and folders<a class="anchor" aria-label="anchor" href="#remove-unused-files-and-folders"></a></h2>
+<hr class="half-width"><p>Let’s start by removing any files or folders that are not needed in
 our project directory.</p>
 <div class="codewrapper sourceCode" id="cb1">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode r" tabindex="0"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a>rm <span class="sc">-</span>r astronaut<span class="sc">-</span>data<span class="sc">-</span>analyses<span class="sc">-</span>old</span></code></pre>
 </div>
-</div>
-<div class="section level2">
-<h2 id="use-meaningful-file-names">Use meaningful file names<a class="anchor" aria-label="anchor" href="#use-meaningful-file-names"></a></h2>
-<p>Let’s give our analysis script a meaningful name that reflects what
+</section><section><h2 class="section-heading" id="use-meaningful-file-names">Use meaningful file names<a class="anchor" aria-label="anchor" href="#use-meaningful-file-names"></a></h2>
+<hr class="half-width"><p>Let’s give our analysis script a meaningful name that reflects what
 it does and do the same for our input and output files.</p>
 <div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -412,10 +411,8 @@ it does and do the same for our input and output files.</p>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="fu">mv</span> my_analysis_v2.R eva_data_analysis.R </span>
 <span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="fu">mv</span> data.json eva_data.json</span></code></pre>
 </div>
-</div>
-<div class="section level2">
-<h2 id="place-library-statements-at-the-top">Place <code>library</code> statements at the top<a class="anchor" aria-label="anchor" href="#place-library-statements-at-the-top"></a></h2>
-<p>Let’s have a look at our code again - the first thing we may notice
+</section><section><h2 class="section-heading" id="place-library-statements-at-the-top">Place <code>library</code> statements at the top<a class="anchor" aria-label="anchor" href="#place-library-statements-at-the-top"></a></h2>
+<hr class="half-width"><p>Let’s have a look at our code again - the first thing we may notice
 is that our script currently places <code>library()</code> statements
 throughout the code. Conventionally, all <code>library()</code>
 statements are placed at the top of the script so that dependent
@@ -523,10 +520,8 @@ help readability (accessibility) and reusability of our code.</p>
 <span><span class="co"># Save plot</span></span>
 <span><span class="fu">ggsave</span><span class="op">(</span><span class="va">g_file</span>, width <span class="op">=</span> <span class="fl">8</span>, height <span class="op">=</span> <span class="fl">6</span><span class="op">)</span></span></code></pre>
 </div>
-</div>
-<div class="section level2">
-<h2 id="use-meaningful-variable-names">Use meaningful variable names<a class="anchor" aria-label="anchor" href="#use-meaningful-variable-names"></a></h2>
-<p>Variables are the most common thing you will assign when coding, and
+</section><section><h2 class="section-heading" id="use-meaningful-variable-names">Use meaningful variable names<a class="anchor" aria-label="anchor" href="#use-meaningful-variable-names"></a></h2>
+<hr class="half-width"><p>Variables are the most common thing you will assign when coding, and
 it’s really important that it is clear what each variable means in order
 to understand what the code is doing. If you return to your code after a
 long time doing something else, or share your code with a colleague, it
@@ -572,7 +567,7 @@ suggest a new name for this variable.</p>
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">var</span> <span class="op">=</span> <span class="fl">9.81</span></span></code></pre>
+<code class="sourceCode R"><span><span class="va">var</span> <span class="op">&lt;-</span> <span class="fl">9.81</span></span></code></pre>
 </div>
 </div>
 </div>
@@ -590,9 +585,10 @@ distinguish it from “big G” which is the <a href="https://en.wikipedia.org/w
 Constant</a>. A more descriptive name for this variable therefore might
 be:</p>
 <div class="codewrapper sourceCode" id="cb5">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a>g_earth <span class="op">=</span> <span class="fl">9.81</span></span></code></pre>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">g_earth</span> <span class="op">&lt;-</span> <span class="fl">9.81</span></span></code></pre>
 </div>
 </div>
 </div>
@@ -734,10 +730,8 @@ and cumulative_time respectively.</li>
 </div>
 </div>
 </div>
-</div>
-<div class="section level2">
-<h2 id="use-standard-libraries">Use standard libraries<a class="anchor" aria-label="anchor" href="#use-standard-libraries"></a></h2>
-<p>Our script currently reads the data line-by-line from the JSON data
+</section><section><h2 class="section-heading" id="use-standard-libraries">Use standard libraries<a class="anchor" aria-label="anchor" href="#use-standard-libraries"></a></h2>
+<hr class="half-width"><p>Our script currently reads the data line-by-line from the JSON data
 file and uses custom code to manipulate the data. Variables of interest
 are stored in lists but there are more suitable data structures
 (e.g. data frames) to store data in our case. By choosing custom code
@@ -792,10 +786,8 @@ frames.</p>
 </div>
 <p>We should replace the existing code in our R script
 <code>eva_data_analysis.R</code> with the above code.</p>
-</div>
-<div class="section level2">
-<h2 id="use-comments-to-explain-functionality">Use comments to explain functionality<a class="anchor" aria-label="anchor" href="#use-comments-to-explain-functionality"></a></h2>
-<p>Commenting is a very useful practice to help convey the context of
+</section><section><h2 class="section-heading" id="use-comments-to-explain-functionality">Use comments to explain functionality<a class="anchor" aria-label="anchor" href="#use-comments-to-explain-functionality"></a></h2>
+<hr class="half-width"><p>Commenting is a very useful practice to help convey the context of
 the code. It can be helpful as a reminder for your future self or your
 collaborators as to why code is written in a certain way, how it is
 achieving a specific task, or the real-world implications of your
@@ -804,9 +796,9 @@ code.</p>
 <ul><li>An <strong>inline comment</strong> is a comment on the same line as
 a code statement. Typically, it comes after the code statement and
 finishes when the line ends and is useful when you want to explain the
-code line in short. Inline comments in Python should be separated by at
-least two spaces from the statement; they start with a # followed by a
-single space, and have no end delimiter.</li>
+code line in short. Inline comments in R should be separated by at least
+two spaces from the statement; they start with a # followed by a single
+space, and have no end delimiter.</li>
 </ul><div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -822,36 +814,41 @@ comments.</li>
 </ul><div class="codewrapper sourceCode" id="cb9">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode r" tabindex="0"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="co"># ==========================================</span></span>
-<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a><span class="co"># This is a block comment.</span></span>
-<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a><span class="co"># You can write a detailed explanation here.</span></span>
-<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a><span class="co"># It can span multiple lines as needed.</span></span>
-<span id="cb9-5"><a href="#cb9-5" tabindex="-1"></a><span class="co"># ==========================================</span></span>
-<span id="cb9-6"><a href="#cb9-6" tabindex="-1"></a></span>
-<span id="cb9-7"><a href="#cb9-7" tabindex="-1"></a></span>
-<span id="cb9-8"><a href="#cb9-8" tabindex="-1"></a>Here are a few things to keep <span class="cf">in</span> mind when commenting your code<span class="sc">:</span></span>
-<span id="cb9-9"><a href="#cb9-9" tabindex="-1"></a></span>
-<span id="cb9-10"><a href="#cb9-10" tabindex="-1"></a><span class="sc">-</span> Focus on the <span class="sc">**</span>why<span class="sc">**</span> and the <span class="sc">**</span>how<span class="sc">**</span> of your code <span class="sc">-</span> avoid using comments to explain <span class="sc">**</span>what<span class="sc">**</span> your code does. </span>
-<span id="cb9-11"><a href="#cb9-11" tabindex="-1"></a>If your code is too complex <span class="cf">for</span> other programmers to understand, consider rewriting it <span class="cf">for</span> clarity rather than adding </span>
-<span id="cb9-12"><a href="#cb9-12" tabindex="-1"></a>comments to explain it.</span>
-<span id="cb9-13"><a href="#cb9-13" tabindex="-1"></a><span class="sc">-</span> Make sure you are not reiterating something that your code already conveys on its own. Comments should not echo your </span>
-<span id="cb9-14"><a href="#cb9-14" tabindex="-1"></a>code.</span>
-<span id="cb9-15"><a href="#cb9-15" tabindex="-1"></a><span class="sc">-</span> Keep comments short and concise. Large blocks of text quickly become unreadable and difficult to maintain.</span>
-<span id="cb9-16"><a href="#cb9-16" tabindex="-1"></a><span class="sc">-</span> Comments that contradict the code are worse than no comments. Always make a priority of keeping comments up<span class="sc">-</span>to<span class="sc">-</span>date </span>
-<span id="cb9-17"><a href="#cb9-17" tabindex="-1"></a>when code changes.</span>
-<span id="cb9-18"><a href="#cb9-18" tabindex="-1"></a></span>
-<span id="cb9-19"><a href="#cb9-19" tabindex="-1"></a><span class="do">### Examples of unhelpful comments</span></span>
-<span id="cb9-20"><a href="#cb9-20" tabindex="-1"></a></span>
-<span id="cb9-21"><a href="#cb9-21" tabindex="-1"></a><span class="st">```</span><span class="at"> r</span></span>
-<span id="cb9-22"><a href="#cb9-22" tabindex="-1"></a><span class="at">statetax &lt;- 1.0625  # Assigns the float 1.0625 to the variable 'statetax'</span></span>
-<span id="cb9-23"><a href="#cb9-23" tabindex="-1"></a><span class="at">citytax &lt;- 1.01  # Assigns the float 1.01 to the variable 'citytax'</span></span>
-<span id="cb9-24"><a href="#cb9-24" tabindex="-1"></a><span class="at">specialtax &lt;- 1.01  # Assigns the float 1.01 to the variable 'specialtax'</span></span></code></pre>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># ==========================================</span></span>
+<span><span class="co"># This is a block comment.</span></span>
+<span><span class="co"># You can write a detailed explanation here.</span></span>
+<span><span class="co"># It can span multiple lines as needed.</span></span>
+<span><span class="co"># ==========================================</span></span></code></pre>
+</div>
+<p>Here are a few things to keep in mind when commenting your code:</p>
+<ul><li>Focus on the <strong>why</strong> and the <strong>how</strong> of
+your code - avoid using comments to explain <strong>what</strong> your
+code does. If your code is too complex for other programmers to
+understand, consider rewriting it for clarity rather than adding
+comments to explain it.</li>
+<li>Make sure you are not reiterating something that your code already
+conveys on its own. Comments should not echo your code.</li>
+<li>Keep comments short and concise. Large blocks of text quickly become
+unreadable and difficult to maintain.</li>
+<li>Comments that contradict the code are worse than no comments. Always
+make a priority of keeping comments up-to-date when code changes.</li>
+</ul><div class="section level3">
+<h3 id="examples-of-unhelpful-comments">Examples of unhelpful comments<a class="anchor" aria-label="anchor" href="#examples-of-unhelpful-comments"></a></h3>
+<div class="codewrapper sourceCode" id="cb10">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">statetax</span> <span class="op">&lt;-</span> <span class="fl">1.0625</span>  <span class="co"># Assigns the float 1.0625 to the variable 'statetax'</span></span>
+<span><span class="va">citytax</span> <span class="op">&lt;-</span> <span class="fl">1.01</span>  <span class="co"># Assigns the float 1.01 to the variable 'citytax'</span></span>
+<span><span class="va">specialtax</span> <span class="op">&lt;-</span> <span class="fl">1.01</span>  <span class="co"># Assigns the float 1.01 to the variable 'specialtax'</span></span></code></pre>
 </div>
 <p>The comments in this code simply tell us what the code does, which is
 easy enough to figure out without the inline comments.</p>
+</div>
 <div class="section level3">
 <h3 id="examples-of-helpful-comments">Examples of helpful comments<a class="anchor" aria-label="anchor" href="#examples-of-helpful-comments"></a></h3>
-<div class="codewrapper sourceCode" id="cb10">
+<div class="codewrapper sourceCode" id="cb11">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -887,7 +884,7 @@ user informed about what the code is doing as it runs.</p></li>
 <div class="accordion-body">
 <p>Some good comments and print statements may look like the example
 below.</p>
-<div class="codewrapper sourceCode" id="cb11">
+<div class="codewrapper sourceCode" id="cb12">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -907,7 +904,7 @@ below.</p>
 <span><span class="fu">print</span><span class="op">(</span><span class="st">"--START--"</span><span class="op">)</span></span>
 <span><span class="fu">print</span><span class="op">(</span><span class="st">"Reading JSON file"</span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># Read the data from a JSON file into a Pandas dataframe</span></span>
+<span><span class="co"># Read the data from a JSON file into a dataframe</span></span>
 <span><span class="va">eva_data</span> <span class="op">&lt;-</span> <span class="fu">fromJSON</span><span class="op">(</span><span class="va">input_file</span>, flatten <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span> <span class="fu">mutate</span><span class="op">(</span>eva <span class="op">=</span> <span class="fu">as.numeric</span><span class="op">(</span><span class="va">eva</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span> <span class="fu">mutate</span><span class="op">(</span>date <span class="op">=</span> <span class="fu">ymd_hms</span><span class="op">(</span><span class="va">date</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
@@ -946,10 +943,8 @@ below.</p>
 </div>
 </div>
 </div>
-</div>
-<div class="section level2">
-<h2 id="separate-units-of-functionality">Separate units of functionality<a class="anchor" aria-label="anchor" href="#separate-units-of-functionality"></a></h2>
-<p>Functions are a fundamental concept in writing software and are one
+</section><section><h2 class="section-heading" id="separate-units-of-functionality">Separate units of functionality<a class="anchor" aria-label="anchor" href="#separate-units-of-functionality"></a></h2>
+<hr class="half-width"><p>Functions are a fundamental concept in writing software and are one
 of the core ways you can organise your code to improve its readability.
 A function is an isolated section of code that performs a single,
 <em>specific</em> task that can be simple or complex. It can then be
@@ -987,15 +982,14 @@ functionality:</p>
 <li>data analysis and visualising the results</li>
 </ol><p>Let’s refactor our code so that reading the data in JSON format into
 a dataframe (step 1.) and converting it and saving to the CSV format
-(step 2.) are extracted into separate functions. Let’s name those
-functions <code>read_json_to_dataframe</code> and
-<code>write_dataframe_to_csv</code> respectively. The main part of the
+(step 2.) is extracted into a separate function. Let’s name this
+function <code>read_json_to_dataframe</code>. The main part of the
 script should then be simplified to invoke these new functions, while
-the functions themselves contain the complexity of each of these two
-steps. We will continue to work on steps 3. and 4. above later on.</p>
+the function itself contain the complexity of this step. We will
+continue to work on steps 3. and 4. above later on.</p>
 <p>After the initial refactoring, our code may look something like the
 following.</p>
-<div class="codewrapper sourceCode" id="cb12">
+<div class="codewrapper sourceCode" id="cb13">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1029,7 +1023,7 @@ following.</p>
 <span><span class="fu">print</span><span class="op">(</span><span class="st">"--START--"</span><span class="op">)</span></span>
 <span></span>
 <span></span>
-<span><span class="co"># Read the data from a JSON file into a Pandas dataframe</span></span>
+<span><span class="co"># Read the data from a JSON file into a dataframe</span></span>
 <span><span class="va">eva_data</span> <span class="op">&lt;-</span> <span class="fu">read_json_to_dataframe</span><span class="op">(</span><span class="va">input_file</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Save dataframe to CSV file for later analysis</span></span>
@@ -1056,20 +1050,17 @@ following.</p>
 <span><span class="fu">ggsave</span><span class="op">(</span><span class="va">graph_file</span>, width <span class="op">=</span> <span class="fl">8</span>, height <span class="op">=</span> <span class="fl">6</span>, plot <span class="op">=</span> <span class="va">time_in_space_plot</span><span class="op">)</span></span>
 <span><span class="fu">print</span><span class="op">(</span><span class="st">"--END--"</span><span class="op">)</span></span></code></pre>
 </div>
-<p>We have chosen to create functions for reading in and writing out
-data files since this is a very common task within research software.
-While these functions do not contain that many lines of code due to
-using the <code>pandas</code> in-built methods that do all the complex
-data reading, converting and writing operations, it can be useful to
-package these steps together into reusable functions if you need to read
-in or write out a lot of similarly structured files and process them in
-the same way.</p>
-</div>
-<div class="section level2">
-<h2 id="function-documentation">Function Documentation<a class="anchor" aria-label="anchor" href="#function-documentation"></a></h2>
-<p>Now that we have written some functions, it is time to document them
+<p>We have chosen to create functions for reading in our data files
+since this is a very common task within research software. While this
+function does not contain that many lines of code due to using the
+<code>tidyverse</code> functions that do all the complex data reading
+and data preparation operations, it can be useful to package these steps
+together into reusable functions if you need to read in or write out a
+lot of similarly structured files and process them in the same way.</p>
+</section><section><h2 class="section-heading" id="function-documentation">Function Documentation<a class="anchor" aria-label="anchor" href="#function-documentation"></a></h2>
+<hr class="half-width"><p>Now that we have written some functions, it is time to document them
 so that we can quickly recall (and others looking at our code in the
-future can understand) what the functions doe without having to read the
+future can understand) what the functions do without having to read the
 code.</p>
 <p><em>Roxygen comments</em> are a specific type of function-level
 documentation that are provided within R functions and classes. Function
@@ -1089,19 +1080,21 @@ The tag <span class="citation">@param</span> is used to document
 function parameters, while <span class="citation">@return</span>
 describes what the function returns, and you can also use <span class="citation">@details</span> to give additional information such as
 errors.</p>
-<div class="codewrapper sourceCode" id="cb13">
+<div class="codewrapper sourceCode" id="cb14">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode r" tabindex="0"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="co">#' Divide number x by number y.</span></span>
-<span id="cb13-2"><a href="#cb13-2" tabindex="-1"></a><span class="co">#' </span></span>
-<span id="cb13-3"><a href="#cb13-3" tabindex="-1"></a><span class="co">#' @param x A number to be divided.</span></span>
-<span id="cb13-4"><a href="#cb13-4" tabindex="-1"></a><span class="co">#' @param y A number to divide by.</span></span>
-<span id="cb13-5"><a href="#cb13-5" tabindex="-1"></a><span class="co">#' @return The result of dividing x by y.</span></span>
-<span id="cb13-6"><a href="#cb13-6" tabindex="-1"></a><span class="co">#' </span></span>
-<span id="cb13-7"><a href="#cb13-7" tabindex="-1"></a><span class="co">#' @details</span></span>
-<span id="cb13-8"><a href="#cb13-8" tabindex="-1"></a><span class="co">#' If y is zero, this will result in an error (division by zero).</span></span>
-<span id="cb13-9"><a href="#cb13-9" tabindex="-1"></a>def <span class="fu">divide</span>(x, y)<span class="sc">:</span></span>
-<span id="cb13-10"><a href="#cb13-10" tabindex="-1"></a>    return x <span class="sc">/</span> y</span></code></pre>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">#' Divide number x by number y.</span></span>
+<span><span class="co">#' </span></span>
+<span><span class="co">#' @param x A number to be divided.</span></span>
+<span><span class="co">#' @param y A number to divide by.</span></span>
+<span><span class="co">#' @return The result of dividing x by y.</span></span>
+<span><span class="co">#' </span></span>
+<span><span class="co">#' @details</span></span>
+<span><span class="co">#' If y is zero, this will result in an error (division by zero).</span></span>
+<span><span class="va">divide</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="kw">return</span><span class="op">(</span><span class="va">x</span> <span class="op">/</span> <span class="va">y</span><span class="op">)</span></span>
+<span><span class="op">}</span></span></code></pre>
 </div>
 <p>We’ll see later in the course how the <code>roxygen2</code> package
 can be used to automatically generate formal documentation for the
@@ -1118,7 +1111,7 @@ optional? Do they have default values?</li>
 <li>What exceptions/errors, if any, it can produce?</li>
 </ul><p>Our <code>read_json_to_dataframe</code> function fully described by a
 roxygen comment block may look like:</p>
-<div class="codewrapper sourceCode" id="cb14">
+<div class="codewrapper sourceCode" id="cb15">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1134,14 +1127,14 @@ roxygen comment block may look like:</p>
 <span><span class="co">#' @return A cleaned and sorted data frame containing the EVA data.</span></span>
 <span><span class="co">#'</span></span>
 <span><span class="va">read_json_to_dataframe</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input_file</span><span class="op">)</span> <span class="op">{</span></span>
-<span>  <span class="fu">cat</span><span class="op">(</span><span class="fu">paste</span><span class="op">(</span><span class="st">"Reading JSON file"</span>, <span class="va">input_file</span>, <span class="st">"\n"</span><span class="op">)</span><span class="op">)</span></span>
+<span>  <span class="fu">print</span><span class="op">(</span><span class="st">"Reading JSON file"</span><span class="op">)</span></span>
 <span></span>
-<span>  <span class="va">eva</span> <span class="op">&lt;-</span> <span class="cn">NULL</span></span>
-<span></span>
-<span>  <span class="va">eva_df</span> <span class="op">&lt;-</span> <span class="fu">jsonlite</span><span class="fu">::</span><span class="fu">fromJSON</span><span class="op">(</span><span class="va">input_file</span>, flatten <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
-<span>    <span class="fu">dplyr</span><span class="fu">::</span><span class="fu">mutate</span><span class="op">(</span>eva <span class="op">=</span> <span class="fu">as.numeric</span><span class="op">(</span><span class="va">eva</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>  <span class="co"># Convert 'eva' to numeric</span></span>
-<span>    <span class="fu">tidyr</span><span class="fu">::</span><span class="fu">drop_na</span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span>                      <span class="co"># Remove rows with NA values</span></span>
-<span>    <span class="fu">dplyr</span><span class="fu">::</span><span class="fu">arrange</span><span class="op">(</span><span class="va">date</span><span class="op">)</span>                      <span class="co"># Sort by 'date'</span></span>
+<span>  <span class="va">eva_df</span> <span class="op">&lt;-</span> <span class="fu">fromJSON</span><span class="op">(</span><span class="va">input_file</span>, flatten <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu">mutate</span><span class="op">(</span>eva <span class="op">=</span> <span class="fu">as.numeric</span><span class="op">(</span><span class="va">eva</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu">mutate</span><span class="op">(</span>date <span class="op">=</span> <span class="fu">ymd_hms</span><span class="op">(</span><span class="va">date</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu">mutate</span><span class="op">(</span>year <span class="op">=</span> <span class="fu">year</span><span class="op">(</span><span class="va">date</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu">drop_na</span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu">arrange</span><span class="op">(</span><span class="va">date</span><span class="op">)</span></span>
 <span></span>
 <span>  <span class="kw">return</span><span class="op">(</span><span class="va">eva_df</span><span class="op">)</span></span>
 <span><span class="op">}</span></span></code></pre>
@@ -1155,7 +1148,7 @@ roxygen comment block may look like:</p>
 <div class="callout-content">
 <p>Write a roxygen comment for this function
 <code>text_to_duration</code>:.</p>
-<div class="codewrapper sourceCode" id="cb15">
+<div class="codewrapper sourceCode" id="cb16">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1179,7 +1172,7 @@ roxygen comment block may look like:</p>
 <div class="accordion-body">
 <p>Our <code>text_to_duration</code> function fully described by roxygen
 comments may look like:</p>
-<div class="codewrapper sourceCode" id="cb16">
+<div class="codewrapper sourceCode" id="cb17">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1211,10 +1204,8 @@ comments may look like:</p>
 </div>
 </div>
 </div>
-</div>
-<div class="section level2">
-<h2 id="functions-for-modular-and-reusable-code-revisited-">Functions for modular and reusable code revisited.<a class="anchor" aria-label="anchor" href="#functions-for-modular-and-reusable-code-revisited-"></a></h2>
-<p>As we have already seen earlier in this episode - functions play a
+</section><section><h2 class="section-heading" id="functions-for-modular-and-reusable-code-revisited-">Functions for modular and reusable code revisited.<a class="anchor" aria-label="anchor" href="#functions-for-modular-and-reusable-code-revisited-"></a></h2>
+<hr class="half-width"><p>As we have already seen earlier in this episode - functions play a
 key role in creating modular and reusable code. We are going to carry on
 improving our code following these principles:</p>
 <ul><li>Each function should have a single, clear responsibility. This makes
@@ -1232,7 +1223,7 @@ data and plot a graph into a separate function
 <p>We can further extract the code to convert the spacewalk duration
 text into a number to allow for arithmetic calculations (into a separate
 function <code>text_to_duration</code>).</p>
-<div class="codewrapper sourceCode" id="cb17">
+<div class="codewrapper sourceCode" id="cb18">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1324,55 +1315,68 @@ function <code>text_to_duration</code>).</p>
 <p>The main part of our code then becomes much simpler and more
 readable, only containing the invocation of the following three
 functions:</p>
-<div class="codewrapper sourceCode" id="cb18">
+<div class="codewrapper sourceCode" id="cb19">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode r" tabindex="0"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" tabindex="-1"></a><span class="co"># https://data.nasa.gov/resource/eva.json (with modifications)</span></span>
-<span id="cb18-2"><a href="#cb18-2" tabindex="-1"></a>input_file <span class="ot">&lt;-</span> <span class="st">"eva-data.json"</span></span>
-<span id="cb18-3"><a href="#cb18-3" tabindex="-1"></a>output_file <span class="ot">&lt;-</span> <span class="st">"eva-data.csv"</span></span>
-<span id="cb18-4"><a href="#cb18-4" tabindex="-1"></a>graph_file <span class="ot">&lt;-</span> <span class="st">"cumulative_eva_graph.png"</span></span>
-<span id="cb18-5"><a href="#cb18-5" tabindex="-1"></a></span>
-<span id="cb18-6"><a href="#cb18-6" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"--START--"</span>)</span>
-<span id="cb18-7"><a href="#cb18-7" tabindex="-1"></a></span>
-<span id="cb18-8"><a href="#cb18-8" tabindex="-1"></a><span class="co"># Read the data from a JSON file into a Pandas dataframe</span></span>
-<span id="cb18-9"><a href="#cb18-9" tabindex="-1"></a>eva_data <span class="ot">&lt;-</span> <span class="fu">read_json_to_dataframe</span>(input_file)</span>
-<span id="cb18-10"><a href="#cb18-10" tabindex="-1"></a></span>
-<span id="cb18-11"><a href="#cb18-11" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"Writing CSV File"</span>)</span>
-<span id="cb18-12"><a href="#cb18-12" tabindex="-1"></a><span class="co"># Save dataframe to CSV file for later analysis</span></span>
-<span id="cb18-13"><a href="#cb18-13" tabindex="-1"></a><span class="fu">write_csv</span>(eva_data, output_file)</span>
-<span id="cb18-14"><a href="#cb18-14" tabindex="-1"></a></span>
-<span id="cb18-15"><a href="#cb18-15" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"Plotting cumulative spacewalk duration and saving to file"</span>)</span>
-<span id="cb18-16"><a href="#cb18-16" tabindex="-1"></a><span class="co"># Plot cumulative time spent in space over years</span></span>
-<span id="cb18-17"><a href="#cb18-17" tabindex="-1"></a><span class="fu">plot_cumulative_time_in_space</span>(eva_data, graph_file)</span>
-<span id="cb18-18"><a href="#cb18-18" tabindex="-1"></a></span>
-<span id="cb18-19"><a href="#cb18-19" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"--END--"</span>)</span>
-<span id="cb18-20"><a href="#cb18-20" tabindex="-1"></a>...</span>
-<span id="cb18-21"><a href="#cb18-21" tabindex="-1"></a></span>
-<span id="cb18-22"><a href="#cb18-22" tabindex="-1"></a><span class="sc">:::</span><span class="er">:::</span> challenge</span>
-<span id="cb18-23"><a href="#cb18-23" tabindex="-1"></a></span>
-<span id="cb18-24"><a href="#cb18-24" tabindex="-1"></a><span class="do">## Using the styler package [^1]</span></span>
-<span id="cb18-25"><a href="#cb18-25" tabindex="-1"></a></span>
-<span id="cb18-26"><a href="#cb18-26" tabindex="-1"></a>a. Look up the stylr package. How can it help you make your code more readable? </span>
-<span id="cb18-27"><a href="#cb18-27" tabindex="-1"></a>b. Install <span class="st">`</span><span class="at">stylr</span><span class="st">`</span> and apply it to this poorly formatted version of the <span class="st">`</span><span class="at">plot_cumulative_time_in_space</span><span class="st">`</span> functions we  created.</span>
-<span id="cb18-28"><a href="#cb18-28" tabindex="-1"></a></span>
-<span id="cb18-29"><a href="#cb18-29" tabindex="-1"></a><span class="st">```</span><span class="at">r</span></span>
-<span id="cb18-30"><a href="#cb18-30" tabindex="-1"></a><span class="at">plot_cumulative_time_in_space &lt;- function(tdf, graph_file) {</span></span>
-<span id="cb18-31"><a href="#cb18-31" tabindex="-1"></a><span class="at">  time_in_space_plot &lt;- tdf |&gt;</span></span>
-<span id="cb18-32"><a href="#cb18-32" tabindex="-1"></a><span class="at">    rowwise() |&gt;</span></span>
-<span id="cb18-33"><a href="#cb18-33" tabindex="-1"></a><span class="at">       mutate(duration_hours = text_to_duration(duration)) |&gt; # Add duration_hours column</span></span>
-<span id="cb18-34"><a href="#cb18-34" tabindex="-1"></a><span class="at">    ungroup() |&gt;</span></span>
-<span id="cb18-35"><a href="#cb18-35" tabindex="-1"></a><span class="at">    mutate(cumulative_time = cumsum(duration_hours)) |&gt; # Calculate cumulative time</span></span>
-<span id="cb18-36"><a href="#cb18-36" tabindex="-1"></a><span class="at">       ggplot(aes(x = date, y = cumulative_time)) +</span></span>
-<span id="cb18-37"><a href="#cb18-37" tabindex="-1"></a><span class="at">    geom_line(color = "black") +</span></span>
-<span id="cb18-38"><a href="#cb18-38" tabindex="-1"></a><span class="at">    labs(</span></span>
-<span id="cb18-39"><a href="#cb18-39" tabindex="-1"></a><span class="at">      x = "Year",</span></span>
-<span id="cb18-40"><a href="#cb18-40" tabindex="-1"></a><span class="at">      y = "Total time spent in space to date (hours)",</span></span>
-<span id="cb18-41"><a href="#cb18-41" tabindex="-1"></a><span class="at">      </span></span>
-<span id="cb18-42"><a href="#cb18-42" tabindex="-1"></a><span class="at">      title = "Cumulative Spacewalk Time"</span></span>
-<span id="cb18-43"><a href="#cb18-43" tabindex="-1"></a><span class="at">    )</span></span>
-<span id="cb18-44"><a href="#cb18-44" tabindex="-1"></a></span>
-<span id="cb18-45"><a href="#cb18-45" tabindex="-1"></a><span class="at">  ggsave(graph_file, width = 8, height = 6, plot = time_in_space_plot)</span></span>
-<span id="cb18-46"><a href="#cb18-46" tabindex="-1"></a><span class="at">}</span></span></code></pre>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># https://data.nasa.gov/resource/eva.json (with modifications)</span></span>
+<span><span class="va">input_file</span> <span class="op">&lt;-</span> <span class="st">"eva-data.json"</span></span>
+<span><span class="va">output_file</span> <span class="op">&lt;-</span> <span class="st">"eva-data.csv"</span></span>
+<span><span class="va">graph_file</span> <span class="op">&lt;-</span> <span class="st">"cumulative_eva_graph.png"</span></span>
+<span></span>
+<span><span class="fu">print</span><span class="op">(</span><span class="st">"--START--"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Read the data from a JSON file into a dataframe</span></span>
+<span><span class="va">eva_data</span> <span class="op">&lt;-</span> <span class="fu">read_json_to_dataframe</span><span class="op">(</span><span class="va">input_file</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">print</span><span class="op">(</span><span class="st">"Writing CSV File"</span><span class="op">)</span></span>
+<span><span class="co"># Save dataframe to CSV file for later analysis</span></span>
+<span><span class="fu">write_csv</span><span class="op">(</span><span class="va">eva_data</span>, <span class="va">output_file</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">print</span><span class="op">(</span><span class="st">"Plotting cumulative spacewalk duration and saving to file"</span><span class="op">)</span></span>
+<span><span class="co"># Plot cumulative time spent in space over years</span></span>
+<span><span class="fu">plot_cumulative_time_in_space</span><span class="op">(</span><span class="va">eva_data</span>, <span class="va">graph_file</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">print</span><span class="op">(</span><span class="st">"--END--"</span><span class="op">)</span></span>
+<span><span class="va">...</span></span></code></pre>
+</div>
+<div id="using-the-styler-package-1" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<div id="using-the-styler-package-1" class="callout-inner">
+<h3 class="callout-title">Using the styler package <a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>
+</h3>
+<div class="callout-content">
+<ol style="list-style-type: lower-alpha"><li>Look up the stylr package. How can it help you make your code more
+readable?</li>
+<li>Install <code>stylr</code> and apply it to this poorly formatted
+version of the <code>plot_cumulative_time_in_space</code> functions we
+created.</li>
+</ol><div class="codewrapper sourceCode" id="cb20">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">plot_cumulative_time_in_space</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">tdf</span>, <span class="va">graph_file</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="va">time_in_space_plot</span> <span class="op">&lt;-</span> <span class="va">tdf</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu">rowwise</span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>       <span class="fu">mutate</span><span class="op">(</span>duration_hours <span class="op">=</span> <span class="fu">text_to_duration</span><span class="op">(</span><span class="va">duration</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="co"># Add duration_hours column</span></span>
+<span>    <span class="fu">ungroup</span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu">mutate</span><span class="op">(</span>cumulative_time <span class="op">=</span> <span class="fu">cumsum</span><span class="op">(</span><span class="va">duration_hours</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="co"># Calculate cumulative time</span></span>
+<span>       <span class="fu">ggplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">date</span>, y <span class="op">=</span> <span class="va">cumulative_time</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu">geom_line</span><span class="op">(</span>color <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu">labs</span><span class="op">(</span></span>
+<span>      x <span class="op">=</span> <span class="st">"Year"</span>,</span>
+<span>      y <span class="op">=</span> <span class="st">"Total time spent in space to date (hours)"</span>,</span>
+<span>      </span>
+<span>      title <span class="op">=</span> <span class="st">"Cumulative Spacewalk Time"</span></span>
+<span>    <span class="op">)</span></span>
+<span></span>
+<span>  <span class="fu">ggsave</span><span class="op">(</span><span class="va">graph_file</span>, width <span class="op">=</span> <span class="fl">8</span>, height <span class="op">=</span> <span class="fl">6</span>, plot <span class="op">=</span> <span class="va">time_in_space_plot</span><span class="op">)</span></span>
+<span><span class="op">}</span></span></code></pre>
+</div>
+</div>
+</div>
 </div>
 <div id="accordionSolution5" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
@@ -1386,7 +1390,7 @@ Data Science</a> for a discussion of <code>stylr</code> and how it can
 help you make your code more readable.</p></li>
 <li><p><code>plot_cumulative_time_in_space</code> after applying
 <code>stylr</code></p></li>
-</ol><div class="codewrapper sourceCode" id="cb19">
+</ol><div class="codewrapper sourceCode" id="cb21">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1411,11 +1415,7 @@ help you make your code more readable.</p></li>
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
-</div>
-<section><h2 class="section-heading" id="further-reading">Further reading<a class="anchor" aria-label="anchor" href="#further-reading"></a></h2>
+</section><section><h2 class="section-heading" id="further-reading">Further reading<a class="anchor" aria-label="anchor" href="#further-reading"></a></h2>
 <hr class="half-width"><p>We recommend the following resources for some additional reading on
 the topic of this episode:</p>
 <ul><li><a href="https://www.index.dev/blog/7-tell-tale-signs-of-unreadable-code-how-to-identify-and-fix-the-problem" class="external-link">7
@@ -1458,7 +1458,7 @@ ported from Python to R (iii) the example code has been deliberately
 modified to be non-repeatable for teaching purposes. (iv) Objectives,
 Questions, Key Points and Further Reading sections have been updated to
 reflect the remixed R focussed content. Some original material has been
-added – this is marked with a footnote <a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>.</p>
+added – this is marked with a footnote.</p>
 <!--
 Place links that you need to refer to multiple times across pages here. Delete
 any links that you are not going to use.

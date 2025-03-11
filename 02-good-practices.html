@@ -364,7 +364,7 @@ guide</a>, for consistent naming conventions, indentation, and code
 structure. This guide is especially useful if you’re working with
 packages like ggplot2, dplyr, and tidyr.</li>
 <li>
-<a href="https://styler.r-lib.org/" class="external-link">stylr</a> - An R package that
+<a href="https://styler.r-lib.org/" class="external-link">styler</a> - An R package that
 helps you automatically format your code according to a style
 guide.</li>
 <li>
@@ -501,7 +501,7 @@ project.</p>
 <p>As part of the <a href="./index.html#astronaut-data-and-analysis-code">setup for this
 course</a>, you should have downloaded a <code>.zip</code> archive
 containing the software project the new research team member was given.
-Let’s unzip this archive and inspect its content in R Studioe. The
+Let’s unzip this archive and inspect its content in R Studio. The
 software project contains:</p>
 <ol style="list-style-type: decimal"><li>a JSON file (<code>data.json</code>) - a snippet of which is shown
 below - with data on extra-vehicular activities (EVAs or spacewalks)
@@ -668,14 +668,14 @@ time in our RStudio session or not.</p>
 <span id="cb7-12"><a href="#cb7-12" tabindex="-1"></a><span class="kw">```</span></span>
 <span id="cb7-13"><a href="#cb7-13" tabindex="-1"></a></span>
 <span id="cb7-14"><a href="#cb7-14" tabindex="-1"></a><span class="ex">Notice</span> how <span class="kw">`</span><span class="ex">ct</span><span class="kw">`</span> is incorrectly reset to <span class="kw">`</span><span class="ex">c</span><span class="er">(</span><span class="ex">111</span><span class="kw">)`</span> here:</span>
-<span id="cb7-15"><a href="#cb7-15" tabindex="-1"></a><span class="kw">```</span></span>
+<span id="cb7-15"><a href="#cb7-15" tabindex="-1"></a><span class="kw">```</span><span class="ex">r</span></span>
 <span id="cb7-16"><a href="#cb7-16" tabindex="-1"></a><span class="ex">ggplot</span><span class="er">(</span><span class="ex">tdf,</span> aes<span class="er">(</span><span class="ex">x</span> = years, y = ct<span class="kw">))</span> <span class="ex">+</span> geom_line<span class="er">(</span><span class="ex">color</span> = <span class="st">"black"</span><span class="kw">)</span> <span class="ex">+</span> geom_point<span class="er">(</span><span class="ex">color</span> = <span class="st">"black"</span><span class="kw">)</span> <span class="ex">+</span> </span>
 <span id="cb7-17"><a href="#cb7-17" tabindex="-1"></a>    <span class="ex">labs</span><span class="er">(</span> <span class="ex">x</span> = <span class="st">"Year"</span>, y = <span class="st">"Total time spent in space to date (hours)"</span>, title = <span class="st">"Cumulative Spacewalk Time"</span> <span class="kw">)</span> <span class="ex">+</span> </span>
 <span id="cb7-18"><a href="#cb7-18" tabindex="-1"></a>    <span class="ex">+</span> theme_minimal<span class="er">(</span><span class="kw">)</span> <span class="kw">;</span> <span class="ex">ct</span> <span class="op">&lt;</span>- c<span class="er">(</span><span class="ex">111</span><span class="kw">)</span></span>
 <span id="cb7-19"><a href="#cb7-19" tabindex="-1"></a></span>
 <span id="cb7-20"><a href="#cb7-20" tabindex="-1"></a><span class="kw">```</span></span>
 <span id="cb7-21"><a href="#cb7-21" tabindex="-1"></a><span class="ex">Let</span><span class="st">'s correct this as follows:</span></span>
-<span id="cb7-22"><a href="#cb7-22" tabindex="-1"></a><span class="st">```</span></span>
+<span id="cb7-22"><a href="#cb7-22" tabindex="-1"></a><span class="st">```r</span></span>
 <span id="cb7-23"><a href="#cb7-23" tabindex="-1"></a><span class="st">ggplot(tdf, aes(x = years, y = ct)) + geom_line(color = "black") + geom_point(color = "black") + </span></span>
 <span id="cb7-24"><a href="#cb7-24" tabindex="-1"></a><span class="st">    labs( x = "Year", y = "Total time spent in space to date (hours)", title = "Cumulative Spacewalk Time" ) + </span></span>
 <span id="cb7-25"><a href="#cb7-25" tabindex="-1"></a><span class="st">    + theme_minimal() </span></span>
