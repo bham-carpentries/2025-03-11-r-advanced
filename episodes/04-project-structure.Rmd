@@ -251,6 +251,7 @@ RoxygenNote: 7.3.2
 ```
 
 The following fields need to be updated:
+
 + `Package` - the name of the package.
 + `Title` - a short description of what the package does.
 + `Version` - the version number of the package.
@@ -552,6 +553,7 @@ export(text_to_duration)
 
 #### Install Package
 The usual workflow for package development is to:
+
 +	make some changes
 +	build and install the package
 +	unload and reload the package (often in a new R session)
@@ -590,6 +592,7 @@ We can inspect the resulting documentation for our function using ?plot_cumulati
 An important part of the package development process is R CMD check. R CMD check automatically checks your code and can automatically detects many common problems that we’d otherwise discover the hard way.
 
 To check our package, we can:
+
 + use devtools::check()
 + click on the ✅Check tab in the Build panel.
 
@@ -601,6 +604,7 @@ This:
 More info on checks here.
 
 Both these run R CMD check which return three types of messages:
+
 +	ERRORs: Severe problems that you should fix regardless of whether or not you’re submitting to CRAN.
 +	WARNINGs: Likely problems that you must fix if you’re planning to submit to CRAN (and a good idea to look into even if you’re not).
 _	NOTEs: Mild problems. If you are submitting to CRAN, you should strive to eliminate all NOTEs, even if they are false positives.
@@ -758,6 +762,88 @@ plot_cumulative_time_in_space <- function(tdf, graph_file) {
 
 
 We can update the rest of our functions as follows:
+
+```r
+#' Read and Clean EVA Data from JSON
+#'
+#' This function reads EVA data from a JSON file, cleans it by converting
+#' the 'eva' column to numeric, converting data from text to date format,
+#. creating a year variable and removing rows with missing values, and sorts
+#' the data by the 'date' column.
+#'
+#' @param input_file A character string specifying the path to the input JSON file.
+#'
+#' @return A cleaned and sorted data frame containing the EVA data.
+#' @export
+read_json_to_dataframe <- function(input_file) {
+  print("Reading JSON file")
+
+  eva_df <- jsonlite::fromJSON(input_file, flatten = TRUE) |>
+    dplyr::mutate(eva = as.numeric(eva)) |>
+    dplyr::mutate(date = lubridate::ymd_hms(date)) |>
+    dplyr::mutate(year = lubridate::year(date)) |>
+    tidyr::drop_na() |>
+    dplyr::arrange(date)
+
+  return(eva_df)
+}
+
+#' Convert Duration from HH:MM Format to Hours
+#'
+#' This function converts a duration in "HH:MM" format (as a character string)
+#' into the total duration in hours (as a numeric value).
+#'
+#' @details
+#' When applied to a vector, it will only process and return the first element
+#' so this function must be applied to a data frame rowwise.
+#'
+#' @param duration A character string representing the duration in "HH:MM" format.
+#'
+#' @return A numeric value representing the duration in hours.
+#'
+#' @examples
+#' text_to_duration("03:45")  # Returns 3.75 hours
+#' text_to_duration("12:30")  # Returns 12.5 hours
+#' @export
+text_to_duration <- function(duration) {
+  time_parts <- stringr::str_split(duration, ":")[[1]]
+  hours <- as.numeric(time_parts[1])
+  minutes <- as.numeric(time_parts[2])
+  duration_hours <- hours + minutes / 60
+  return(duration_hours)
+}
+
+#' Plot Cumulative Time in Space Over the Years
+#'
+#' This function plots the cumulative time spent in space over the years based on
+#' the data in the dataframe. The cumulative time is calculated by converting the
+#' "duration" column into hours, then computing the cumulative sum of the duration.
+#' The plot is saved as a PNG file at the specified location.
+#'
+#' @param tdf A dataframe containing a "duration" column in "HH:MM" format and a "date" column.
+#' @param graph_file A character string specifying the path to save the graph.
+#'
+#' @return NULL
+#' @export
+plot_cumulative_time_in_space <- function(tdf, graph_file) {
+
+  time_in_space_plot <- tdf |>
+    dplyr::rowwise() |>
+    dplyr::mutate(duration_hours = text_to_duration(duration)) |>  # Add duration_hours column
+    dplyr::ungroup() |>
+    dplyr::mutate(cumulative_time = cumsum(duration_hours)) |>     # Calculate cumulative time
+    ggplot2::ggplot(ggplot2::aes(x = date, y = cumulative_time)) +
+    ggplot2::geom_line(color = "black") +
+    ggplot2::labs(
+      x = "Year",
+      y = "Total time spent in space to date (hours)",
+      title = "Cumulative Spacewalk Time"
+    )
+
+  ggplot2::ggsave(graph_file, width = 8, height = 6, plot = time_in_space_plot)
+
+}
+```
 
 Let’s run Check again:
 ```r
@@ -1006,7 +1092,7 @@ the course.
 :::
 
 ## Attribution
-This episode reuses material from pages [“Create a compendium”][rrr-with-rrtools-ak-compendium] and [“Manage functionality as a package“][rrr-with-rrtools-package] from [“Reproducible Research in R with rrtools”][rrr-with-rrtools-ak] by Anna Krystalli under [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/) license with modifications. Sections covering git and github have been removed. Output has been modified to reflect the spacewalks case study project used in this course.  Some original material has been added to introduce the episode and to connect sections together where needed. This is indicated with a footnote [^1] e.g. Challenge “Create a Driver Script”.  The section ”Test function” is omitted and the Document function section has been cut-down as roxygen is covered elsewhere in this course.   
+This episode reuses material from pages [“Create a compendium”][rrr-with-rrtools-ak-compendium] and [“Manage functionality as a package“][rrr-with-rrtools-ak-package] from [“Reproducible Research in R with rrtools”][rrr-with-rrtools-ak] by Anna Krystalli under [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/) license with modifications. Sections covering git and github have been removed. Output has been modified to reflect the spacewalks case study project used in this course.  Some original material has been added to introduce the episode and to connect sections together where needed. This is indicated with a footnote [^1] e.g. Challenge “Create a Driver Script”.  The section ”Test function” is omitted and the Document function section has been cut-down as roxygen is covered elsewhere in this course.   
 Questions, Objectives and Keypoints have been re-used from the “Code Structure” episod the Software Carpentries Incubator course [‘Tools and practices of FAIR research software”][fair-software-course-code-structure] under a [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/) licence with modifications: adaptations for  R code.  
 
 
