@@ -39,8 +39,6 @@ what I have written here?"
 
 We will now learn about a few best practices we can follow to help create more readable code. 
 
-::: callout
-
 ::: instructor
 
 At this point, the code in your local software project's directory should be as in:
@@ -205,7 +203,7 @@ Go online and find out which constant 9.81 relates to and suggest a new name for
 Hint: the units are *metres per second squared*!
 
 ``` r
-var = 9.81
+var <- 9.81
 ```
 
 ::: solution
@@ -215,8 +213,8 @@ $$ 9.81 m/s^2 $$ is the [gravitational force exerted by the Earth](https://en.wi
 It is often referred to as "little g" to distinguish it from "big G" which is the [Gravitational Constant](https://en.wikipedia.org/wiki/Gravitational_constant).
 A more descriptive name for this variable therefore might be:
 
-``` python
-g_earth = 9.81
+```r
+g_earth <- 9.81
 ```
 :::
 ::::::
@@ -418,7 +416,7 @@ There are several ways to add comments to code:
 - An **inline comment** is a comment on the same line as a code statement. 
 Typically, it comes after the code statement and finishes when the line ends and 
 is useful when you want to explain the code line in short. 
-Inline comments in Python should be separated by at least two spaces from the statement; they start with a # followed
+Inline comments in R should be separated by at least two spaces from the statement; they start with a # followed
 by a single space, and have no end delimiter.
 
 ``` r
@@ -436,7 +434,7 @@ x <- 5  # In R, inline comments begin with the `#` symbol and a single space.
 # You can write a detailed explanation here.
 # It can span multiple lines as needed.
 # ==========================================
-
+```
 
 Here are a few things to keep in mind when commenting your code:
 
@@ -478,8 +476,7 @@ The date in the comment also indicates when the code might need to be updated.
 a. Examine `eva_data_analysis.py`.
 Add as many comments as you think is required to help yourself and others understand what that code is doing.
 
-b. Add as many print statements as you think is required to keep the user informed about what the code is doing 
-   as it runs.
+b. Add as many print statements as you think is required to keep the user informed about what the code is doing as it runs.
 
 
 ::: solution
@@ -505,7 +502,7 @@ graph_file <- "cumulative_eva_graph.png"
 print("--START--")
 print("Reading JSON file")
 
-# Read the data from a JSON file into a Pandas dataframe
+# Read the data from a JSON file into a dataframe
 eva_data <- fromJSON(input_file, flatten = TRUE) |>
  mutate(eva = as.numeric(eva)) |>
  mutate(date = ymd_hms(date)) |>
@@ -573,10 +570,10 @@ Looking at our code, you may notice it contains different pieces of functionalit
 4. data analysis and visualising the results
 
 Let's refactor our code so that reading the data in JSON format into a dataframe (step 1.) and converting it and saving 
-to the CSV format (step 2.) are extracted into separate functions.
-Let's name those functions `read_json_to_dataframe` and `write_dataframe_to_csv` respectively. 
-The main part of the script should then be simplified to invoke these new functions, while the functions themselves 
-contain the complexity of each of these two steps. We will continue to work on steps 3. and 4. above later on.
+to the CSV format (step 2.) is extracted into a separate function.
+Let's name this function `read_json_to_dataframe`. 
+The main part of the script should then be simplified to invoke these new functions, while the function itself 
+contain the complexity of this step. We will continue to work on steps 3. and 4. above later on.
 
 After the initial refactoring, our code may look something like the following.
 
@@ -611,7 +608,7 @@ graph_file <- "cumulative_eva_graph.png"
 print("--START--")
 
 
-# Read the data from a JSON file into a Pandas dataframe
+# Read the data from a JSON file into a dataframe
 eva_data <- read_json_to_dataframe(input_file)
 
 # Save dataframe to CSV file for later analysis
@@ -640,10 +637,10 @@ print("--END--")
 
 ```
 
-We have chosen to create functions for reading in and writing out data files since this is a very common task within 
+We have chosen to create functions for reading in our data files since this is a very common task within 
 research software.
-While these functions do not contain that many lines of code due to using the `pandas` in-built methods that do all the 
-complex data reading, converting and writing operations, 
+While this function does not contain that many lines of code due to using the `tidyverse` functions  that do all the 
+complex data reading and data preparation operations, 
 it can be useful to package these steps together into reusable functions if you need to read in or write out a lot of 
 similarly structured files and process them in the same way.
 
@@ -651,7 +648,7 @@ similarly structured files and process them in the same way.
 ## Function Documentation
 
 Now that we have written some functions, it is time to document them so that we can quickly recall 
-(and others looking at our code in the future can understand) what the functions doe without having to read
+(and others looking at our code in the future can understand) what the functions do without having to read
 the code.
 
 *Roxygen comments* are a specific type of function-level documentation that are provided within R functions and classes.
@@ -679,8 +676,9 @@ while @return describes what the function returns, and you can also use
 #' 
 #' @details
 #' If y is zero, this will result in an error (division by zero).
-def divide(x, y):
-    return x / y
+divide <- function(x, y) {
+    return(x / y)
+}
 ```
 
 We'll see later in the course
@@ -710,14 +708,14 @@ Our `read_json_to_dataframe` function fully described by a roxygen comment block
 #' @return A cleaned and sorted data frame containing the EVA data.
 #'
 read_json_to_dataframe <- function(input_file) {
-  cat(paste("Reading JSON file", input_file, "\n"))
+  print("Reading JSON file")
 
-  eva <- NULL
-
-  eva_df <- jsonlite::fromJSON(input_file, flatten = TRUE) %>%
-    dplyr::mutate(eva = as.numeric(eva)) %>%  # Convert 'eva' to numeric
-    tidyr::drop_na() %>%                      # Remove rows with NA values
-    dplyr::arrange(date)                      # Sort by 'date'
+  eva_df <- fromJSON(input_file, flatten = TRUE) |>
+    mutate(eva = as.numeric(eva)) |>
+    mutate(date = ymd_hms(date)) |>
+    mutate(year = year(date)) |>
+    drop_na() |>
+    arrange(date)
 
   return(eva_df)
 }
@@ -896,7 +894,7 @@ graph_file <- "cumulative_eva_graph.png"
 
 print("--START--")
 
-# Read the data from a JSON file into a Pandas dataframe
+# Read the data from a JSON file into a dataframe
 eva_data <- read_json_to_dataframe(input_file)
 
 print("Writing CSV File")
@@ -909,6 +907,7 @@ plot_cumulative_time_in_space(eva_data, graph_file)
 
 print("--END--")
 ...
+```
 
 :::::: challenge
 
@@ -988,6 +987,6 @@ compartmentalise which parts of the code are doing what actions and isolate spec
 
 ## Attribution
 
-This episode reuses material from the [“Code Readability”][fair-software-course-readability] episode of the Software Carpentries Incubator course ["Tools and practices of FAIR research software”][fair-software-course] under a [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/deed.en) licence with modifications: (i) adaptations  have been made to make the material suitable for an audience of  R users (e.g. replacing “software” with “code” in places, docstrings with roxygen2), (ii) all code has been ported from Python to  R (iii) the example code has been deliberately modified to be non-repeatable  for teaching purposes. (iv) Objectives, Questions, Key Points and Further Reading sections have been updated to reflect the remixed R focussed content. Some original material has been added – this is marked with a footnote [^1].   
+This episode reuses material from the [“Code Readability”][fair-software-course-readability] episode of the Software Carpentries Incubator course ["Tools and practices of FAIR research software”][fair-software-course] under a [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/deed.en) licence with modifications: (i) adaptations  have been made to make the material suitable for an audience of  R users (e.g. replacing “software” with “code” in places, docstrings with roxygen2), (ii) all code has been ported from Python to  R (iii) the example code has been deliberately modified to be non-repeatable  for teaching purposes. (iv) Objectives, Questions, Key Points and Further Reading sections have been updated to reflect the remixed R focussed content. Some original material has been added – this is marked with a footnote.   
 
 [^1]: Original Material

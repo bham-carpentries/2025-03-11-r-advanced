@@ -31,7 +31,7 @@ are important practices to ensure that others find it easy to read your code, re
 For R, some key resources include:
 
 + The [tidyverse style guide][tidyverse-style-guide], for consistent naming conventions, indentation, and code structure.     This guide  is especially useful if you're working with packages like ggplot2, dplyr, and tidyr.
-+ [stylr][stylr-package] - An R package that helps you automatically format your code according to a style guide.
++ [styler][stylr-package] - An R package that helps you automatically format your code according to a style guide.
 + [lintr][lintr-package] - An R package that checks your code for style issues and syntax errors.
 
 
@@ -150,7 +150,7 @@ their own project.
 
 As part of the [setup for this course](./index.html#astronaut-data-and-analysis-code), you should have downloaded a `.zip` archive containing the software project
 the new research team member was given. 
-Let's unzip this archive and inspect its content in R Studioe. 
+Let's unzip this archive and inspect its content in R Studio. 
 The software project contains:
 
 (1) a JSON file (`data.json`) - a snippet of which is shown below - with data on extra-vehicular activities 
@@ -296,14 +296,14 @@ b . The results of the analysis are not repeatable because the code produces dif
     ```
     
     Notice how `ct` is incorrectly reset to `c(111)` here:
-    ```
+    ```r
     ggplot(tdf, aes(x = years, y = ct)) + geom_line(color = "black") + geom_point(color = "black") + 
         labs( x = "Year", y = "Total time spent in space to date (hours)", title = "Cumulative Spacewalk Time" ) + 
         + theme_minimal() ; ct <- c(111)
 
     ```
     Let's correct this as follows:
-    ```
+    ```r
     ggplot(tdf, aes(x = years, y = ct)) + geom_line(color = "black") + geom_point(color = "black") + 
         labs( x = "Year", y = "Total time spent in space to date (hours)", title = "Cumulative Spacewalk Time" ) + 
         + theme_minimal() 
