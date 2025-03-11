@@ -182,7 +182,7 @@ Let's have a closer look at one line of to understand the dataset a little bette
 ]
 ```
 
-(2) an R script (`my_code_v2.py`) containing some analysis. The first few lines are:
+(2) an R script (`my_code_v2.R`) containing some analysis. The first few lines are:
 ```r
 # https://data.nasa.gov/resource/eva.json (with modifications)
 
