@@ -534,7 +534,7 @@ Writing text_to_duration.Rd
 Writing plot_cumulative_time_in_space.Rd
 ```
 
-The man/ directory will now contain an .Rd file for recode_system_size.
+The man/ directory will now contain an .Rd file for each of our functions.
 ```output
 man
 └── plot_cumulative_time_in_space.Rd
