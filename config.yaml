@@ -70,10 +70,10 @@ episodes:
 - 02-good-practices.Rmd
 - 03-code-readability.Rmd
 - 04-project-structure.Rmd
-#  - 05-code-documentation.Rmd
-#  - 06-code-correctness.Rmd
-#  - 07-code-environment.Rmd
-#  - 08-wrap-up.Rmd
+- 05-code-documentation.Rmd
+- 06-code-correctness.Rmd
+- 07-code-environment.Rmd
+- 08-wrap-up.Rmd
 
 # Information for Learners
 learners:
