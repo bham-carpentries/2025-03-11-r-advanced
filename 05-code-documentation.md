@@ -242,12 +242,12 @@ might change your mind about the license you'd like to use.
 
 1. Many R packages are licensed using GPL-2 / 3. Read the description of GPL-2 and GPL-3 licenses from the [choosealicense.com][choosealicense] website.
 
-2. Use  usethis::use_gpl3_license(copyright_holder = 'You Name')) to change the license of your code to GPL-3. This function will create a LICENSE file in the root of your repository with the text of the GPL-3 license.
+2. Use  usethis::use_gpl_license(version = 3, include_future = TRUE) to change the license of your code to GPL-3. This function will create a LICENSE file in the root of your repository with the text of the GPL-3 license.
 
 ::: solution
 
 1. See [choosealicense.com][choosealicense]
-2. usethis::use_gpl3_license(copyright_holder = 'You Name')) 
+2. usethis::use_gpl_license(version = 3, include_future = TRUE)
 
 :::
 
