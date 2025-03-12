@@ -160,6 +160,12 @@ Project Structure
 [rrrdpm-in-r-ak]: https://annakrystalli.me/rrresearchACCE20/
 
 
+<!-------
+Code Correctness
+---->
+[test-that-pkg]: https://testthat.r-lib.org/
+[r-pkg-testing]: https://r-pkgs.org/testing-basics.html
+
 <!--
 Attribution
 -->
@@ -174,5 +180,5 @@ Attribution
 [fair-software-course-tools]: https://carpentries-incubator.github.io/fair-research-software/03-tools.html
 [fair-software-course-readability]: https://carpentries-incubator.github.io/fair-research-software/06-code-readability.html
 [fair-software-course-code-structure]: https://carpentries-incubator.github.io/fair-research-software/07-code-structure.html
-
+[fair-software-course-documentation]: https://carpentries-incubator.github.io/fair-research-software/09-code-documentation.html
 
