@@ -264,7 +264,7 @@ This encourages users to credit us when they make use of our code:
 
 Please cite this compendium as:
 
-> Kopec-Harding et al, (2025). _Compendium of R code and data for an analyis of NASA extravehicular data. Accessed 12 Mar 2025. Online at <https://doi.org/xxx/xxx>
+> Kopec-Harding et al, (2025). _Compendium of R code and data for an analyis of NASA extravehicular data. Accessed 25 Mar 2025. Online at <https://doi.org/xxx/xxx>
 ```
 
 In this example, we assume that the code of the R Compendium will be shared online via repository such as Zenodo (see ["Archiving code to Zenodo and obtaining a DOI"]("https://carpentries-incubator.github.io/fair-research-software/10-open-collaboration.html#archiving-code-to-zenodo-and-obtaining-a-doi").
