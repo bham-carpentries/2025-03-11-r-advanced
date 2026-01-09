@@ -184,7 +184,7 @@ RENV_PATHS_LIBRARY = renv/library
 Then, we can initialise `renv`
 
 
-```r
+``` r
 renv::init()
 ```
 
@@ -392,11 +392,11 @@ The folder `renv/library/R-4.3` contains the project specific library of install
 Once we have run `renv::init()`, we should run renv::status() to check the status of our project library.
 
 
-```r
+``` r
 renv::status()
 ```
 
-```{.output}
+``` output
 No issues found -- the project is in a consistent state.
 ```
 
