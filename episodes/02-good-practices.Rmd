@@ -1,26 +1,26 @@
 ---
-title: "Good Practices"
+title: "Good practices"
 teaching: 60
 exercises: 30
 ---
 
 :::::::::::::::::::::::::::::::::::::: questions
 
-- What good practices can to help us develop reproducible, reusable and computationally correct R code?
+- What good practices can help us develop reproducible, reusable and computationally correct R code?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::: objectives
 After completing this episode, participants should be able to:
 
-- Identify some good practices the help us develop reproducible, reusable and computationally correct R code
-- Explain how can these practices support reproducibility
+- Identify some good practices that help us develop reproducible, reusable and computationally correct R code
+- Explain how these practices support reproducibility
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## Tools and good practices
 
-There are various tools and practices that support the development of reproducible, reusable and computationally correct R code  In later episodes we will describe these tools and practices in more detail.
+There are various tools and practices that support the development of reproducible, reusable and computationally correct R code  In later episodes, we will describe these tools and practices in more detail.
 
 
 ### Coding conventions
@@ -100,7 +100,7 @@ which makes it easier for others to navigate your project.
 ### Code testing (`testthat`)
 
 Testing ensures that your code is correct and does what it is set out to do.
-When you write code you often feel very confident that it is perfect, but when writing bigger codes or code that is meant to do complex operations
+When you write code, you often feel very confident that it is perfect, but when writing bigger codes or code that is meant to do complex operations
 it is very hard to consider all possible edge cases or notice every single typing mistake.
 Testing also gives other people confidence in your code as they can see an example of how it is meant to run and be assured that it does work
 correctly on their machine - helping with code understanding and reusability.
@@ -109,7 +109,7 @@ correctly on their machine - helping with code understanding and reusability.
 ### Code- and project- level documentation (`roxygen2`, `pkgdown`)
 
 Documentation comes in many forms - from **code-level documentation** including descriptive names of variables and functions and
-additional comments that explain lines of your code, to **project-level documentation** (including README, LICENCE, CITATION, etc. files)
+additional comments that explain lines of your code, to **project-level documentation** (including README, LICENSE, CITATION, etc. files)
 that help explain the legal terms of reusing it, describe its functionality and how to install and run  it,
 to whole websites full of documentation with function definitions, usage examples, tutorials and guides.
 You many not need as much documentation as a large commercial software product, but making your code reusable relies on other people being able to understand what your code does and how to use it.
@@ -121,12 +121,12 @@ photographs, films, music, software code) is releasing what they have created fo
 It is important to state the terms under which software can be reused - the lack of a licence for your code
 implies that no one can reuse the software at all.
 
-A common way to declare your copyright of a piece of software and the license you are distributing it under is to
+A common way to declare your copyright of a piece of software and the licence you are distributing it under is to
 include a file called **LICENSE** in the root directory of your code project folder / repository.
 
 #### Code citation
 
-We should add citation instructions to our project README or a **CITATION** file to our project to provide instructions on how and when to cite our code.
+You should add citation instructions to our project README or a **CITATION** file to your project to provide instructions on how and when to cite your code.
 A citation file can be a plain text (CITATION.txt) or a Markdown file (CITATION.md), but there are certain benefits
 to using use a special file format called the [Citation File Format (CFF)][cff], which provides a way to include richer
 metadata about code (or datasets) we want to cite, making it easy for both humans and machines to use this information.
@@ -318,11 +318,11 @@ b. Barriers to reproducibility include:
      It is hard to determine the purpose of the code or how it works. This may hinder 
      another researcher's ability to get the code running.
    - The code does not explicitly specify what third party packages need to be installed to
-     run the code. There are library() statements in the code but these are positioned through
+     run the code. There are `library()` statements in the code but these are positioned through
      out the code and not in a single place where they can be easily identified. We don't know 
      which version of the packages were used in the analysis.
    - It is really difficult to understand what the code does and how it does it. 
-     This makes it hard to modify the code to run on different dataset or plot another facet of the data.
+     This makes it hard to modify the code to run on different datasets or plot another facet of the data.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -338,17 +338,17 @@ Also check the [full reference set](learners/reference.md#litref) for the course
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 - Coding conventions ensure your R code is easy to read, reuse, and extend.
-- Research compendia provide an organized directory for your code, data, documentation, and results.
+- Research compendia provide organized directories for your code, data, documentation, and results.
 - Testing helps you check that your code is behaving as expected and will continue to do so in the future or when used by someone else.
 - Documentation is essential for explaining what your code does, how to use it, and the legal terms for reuse. 
-- Dependency management helps making your code reproducible across different computational environments.
+- Dependency management helps make your code reproducible across different computational environments.
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## Attribution
 This episode is a remix of  episodes [“FAIR research software”][fair-software-course-fair] (Section: Software and data used in this course) and [“Tools and Practices for FAIR research software development”][fair-software-course-tools] from  the Software Carpentries Incubator course ["Tools and practices of FAIR research software”][fair-software-course]] under a [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/deed.en) licence with modifications. 
 
-The material has been edited to target a audience of R users and to focus on reproducibility, correctness and reuse as end goals rather than FAIR (findability, accessibility, interoperability and reusability) . Consequently, several tools considered in the original course  e.g. persistent identifiers have been omitted.  The section  Code and data used in this course has been adapted to reflect the R version of the spacewalks repository used in this course. 
+The material has been edited to target a audience of R users and to focus on reproducibility, correctness and reuse as end goals rather than FAIR (findability, accessibility, interoperability and reusability). Consequently, several tools considered in the original course  e.g. persistent identifiers have been omitted.  The section  Code and data used in this course has been adapted to reflect the R version of the spacewalks repository used in this course. 
 
-Objectives, Questions, Key Points and Further Reading sections have been updated to reflect the remixed R focussed content. Some original material has been added – this is marked with a footnote [^1].
+Objectives, Questions, Key Points and Further Reading sections have been updated to reflect the remixed R focused content. Some original material has been added – this is marked with a footnote [^1].
 
 [^1]: Original material.
