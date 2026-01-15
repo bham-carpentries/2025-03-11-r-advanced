@@ -28,7 +28,7 @@ In this episode we will expand these practices to our (research) projects as a w
 
 ::: instructor
 At this point, the code in your local software project's directory
-should be as in: TODO
+should be as in: https://github.com/bham-carpentries/astronaut-data-analysis-for-r/tree/04-project-structure
 :::
 
 ## Introducing Research Compendia
@@ -116,7 +116,7 @@ advanced_r/
 ```
 
 Before we start, we need to close our current `spacewalks1` project (File >> Close Project) and 
-create and open a new R project `spacewalks2` in the compendium subdfolder of `advanced_r` (File >> New Project >>  New Directory >> New Project).
+create and open a new R project `spacewalks2` in the compendium subfolder of `advanced_r` (File >> New Project >>  New Directory >> New Project).
 
 ``` output
 advanced_r/
@@ -309,7 +309,7 @@ usethis::use_mit_license(copyright_holder = "Kamilla Kopec-Harding")
 
 ### Add components to the compendium
 Once we have filled in the DESCRIPTION file and added a license file, 
-we can start adding content to the compendium. We'll look a this in detail in
+we can start adding content to the compendium. We'll look at this in detail in
 the next section
 
 
@@ -558,14 +558,14 @@ The usual workflow for package development is to:
 +	build and install the package
 +	unload and reload the package (often in a new R session)
 
-The best way to install and reload a package in a fresh R session is to use the 🔨 Clean and Install cammand tab in the Build panel which performs several steps in sequence to ensure a clean and correct result:
+The best way to install and reload a package in a fresh R session is to use the 🔨 Clean and Install command tab in the Build panel which performs several steps in sequence to ensure a clean and correct result:
 
 +	Unloads any existing version of the package (including shared libraries if necessary).
 +	Builds and installs the package using R CMD INSTALL.
 +	Restarts the underlying R session to ensure a clean environment for re-loading the package.
 +	Reloads the package in the new R session by executing the library function.
 
-Running the 🔨 Clean and Install  command on our package results in this output in the Build panel output:
+Running the 🔨 Clean and Install command on our package results in this output in the Build panel output:
 
 ```output
 ==> R CMD INSTALL --preclean --no-multiarch --with-keep.source spacewalks2

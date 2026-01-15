@@ -43,7 +43,7 @@ We will now learn about a few best practices we can follow to help create more r
 
 At this point, the code in your local software project's directory should be as in:
 
-TODO
+https://github.com/bham-carpentries/astronaut-data-analysis-for-r/tree/03-code-readability?tab=readme-ov-file
 :::
 
 ## Remove unused files and folders
