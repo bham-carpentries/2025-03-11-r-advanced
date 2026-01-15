@@ -1,5 +1,5 @@
 ---
-title: Code structure
+title: Project structure
 teaching: 60
 exercises: 30
 editor_options: 
@@ -1089,6 +1089,10 @@ the course.
 ::: keypoints
 -   Good practices for code and project structure are essential for
     creating readable, reusable and reproducible projects.
+- You can create a research compendium using rrtools or create an R package
+- Both approaches use a standard set of files and directories that other R users will be familiar with
+- All functions go in the R/ folder of this new directory
+- A typical workflow is to modify your code and then run devtools::check() to ensure there are no errors or warnings. 
 :::
 
 ## Attribution
