@@ -281,7 +281,7 @@
 <div class="accordion accordion-flush" id="accordionFlush5">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading5">
-        <a href="04-project-structure.html">4. Code structure</a>
+        <a href="04-project-structure.html">4. Project structure</a>
     </div>
 <!--/div.accordion-header-->
 
@@ -423,11 +423,18 @@ duplication.</li>
 make the code more readable and help. compartmentalise which parts of
 the code are doing what actions and isolate specific code sections for
 re-use.</li>
-</ul></section><section id="04-project-structure"><h2 class="section-heading"><a href="04-project-structure.html">Code structure</a></h2>
+</ul></section><section id="04-project-structure"><h2 class="section-heading"><a href="04-project-structure.html">Project structure</a></h2>
 <hr class="half-width">
 <ul>
 <li>Good practices for code and project structure are essential for
 creating readable, reusable and reproducible projects.</li>
+<li>You can create a research compendium using rrtools or create an R
+package</li>
+<li>Both approaches use a standard set of files and directories that
+other R users will be familiar with</li>
+<li>All functions go in the R/ folder of this new directory</li>
+<li>A typical workflow is to modify your code and then run
+devtools::check() to ensure there are no errors or warnings.</li>
 </ul></section><section id="05-code-documentation"><h2 class="section-heading"><a href="05-code-documentation.html">Code documentation</a></h2>
 <hr class="half-width">
 <ul>
