@@ -76,11 +76,11 @@ In this course we mainly address the aspect of reproducibility - i.e. enabling o
 
 ## The reproducibility spectrum 
 
-As with most things, reproducibility is non-binary. Having access to code and data sometimes is good, but how about describing the specific version of each software and packaged used? Do you need to describe the operating system? How about the architecture of the CPU?
+As with most things, reproducibility is non-binary. Having access to code and data sometimes is good, but how about describing the specific version of each software and package used? Do you need to describe the operating system? How about the architecture of the CPU?
 
 How exact should results be to be considered successfully reproduced? Do we expect identical result bit by bit? Or do we allow for small changes in non-significant digits, cosmetic variation in figures such as fonts or colours?
 
-For these reasons instead of saying that a research project is reproducible or not, is often more helpful to say that a research project is more or less reproducible and harder or easier to reproduce. A project that publishes code and data but not software versions is probably harder to reproduce than one that provides the virtual machine in which the code was run.
+For these reasons, instead of saying that a research project is reproducible or not, is often more helpful to say that a research project is more or less reproducible and harder or easier to reproduce. A project that publishes code and data but not software versions is probably harder to reproduce than one that provides the virtual machine in which the code was run.
 
 ::::::
 
@@ -95,7 +95,7 @@ cancer sciences ([Errington et al (2021)][replication-crisis-errington]).
 These are called [**the reproducibility and replicability crises**][reproducibility-crisis] - ongoing
 methodological crises in which the results of many scientific studies are difficult or impossible to repeat.
 
-Reproducible research is a practice that ensures that researchers can repeat the same analysis multiple times with the 
+Reproducible research is a practice that ensures that researchers can repeat the same analysis multiple times with the
 same results. It offers many benefits to those who practice it:
 
 * Reproducible research helps researchers remember how and why they performed specific tasks and analyses; 
@@ -118,7 +118,7 @@ As researchers, we often also want our work to be "computationally correct" and 
 
 ## Tools and Practices
 Developing high quality, reusable and reproducible research code often requires that 
-researchers new practices.
+researchers learn new practices.
 
 This course teaches good practices and reproducible working methods for those working with R and aims to provide 
 researchers with the tools and knowledge to feel confident when writing good quality and sustainable 
