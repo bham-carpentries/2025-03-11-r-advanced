@@ -353,7 +353,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Code correctness</h1>
-        <p>Last updated on 2026-01-09 |
+        <p>Last updated on 2026-02-02 |
 
         <a href="https://github.com/kkh451/r_reproducibility/edit/main/episodes/06-code-correctness.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -747,7 +747,7 @@ minute component, and rerun our test code.</p>
 <span></span>
 <span><span class="va">test_text_to_duration_float</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="va">input_value</span> <span class="op">&lt;-</span> <span class="st">"10:15"</span></span>
-<span>  <span class="va">test_result</span> <span class="op">&lt;-</span> <span class="fu">all.equal</span><span class="op">(</span><span class="fu">text_to_duration</span><span class="op">(</span><span class="va">input_value</span><span class="op">)</span>, <span class="fl">10.25</span><span class="op">)</span> <span class="co">#</span></span>
+<span>  <span class="va">test_result</span> <span class="op">&lt;-</span> <span class="fu">text_to_duration</span><span class="op">(</span><span class="va">input_value</span><span class="op">)</span> <span class="op">==</span> <span class="fl">10.25</span> <span class="co">#</span></span>
 <span>  <span class="fu">expect_true</span><span class="op">(</span><span class="va">test_result</span><span class="op">)</span></span>
 <span><span class="op">}</span></span>
 <span></span>
@@ -1521,7 +1521,7 @@ Attribution
   "url": "https://kkh451.github.io/r_reproducibility/06-code-correctness.html",
   "identifier": "https://kkh451.github.io/r_reproducibility/06-code-correctness.html",
   "dateCreated": "2024-09-01",
-  "dateModified": "2026-01-09",
+  "dateModified": "2026-02-02",
   "datePublished": "2026-02-02"
 }
 

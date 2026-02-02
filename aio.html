@@ -1463,7 +1463,7 @@ suggest a new name for this variable.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p><span class="math display">\[ 9.81 m/s^2 \]</span> is the <a href="https://en.wikipedia.org/wiki/Gravity_of_Earth" class="external-link">gravitational
 force exerted by the Earth</a>. It is often referred to as “little g” to
@@ -1510,7 +1510,7 @@ renaming?</p></li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <ol style="list-style-type: lower-alpha">
 <li>Updated code:</li>
@@ -1791,7 +1791,7 @@ user informed about what the code is doing as it runs.</p></li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <p>Some good comments and print statements may look like the example
 below.</p>
@@ -2088,7 +2088,7 @@ roxygen comment block may look like:</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <p>Our <code>text_to_duration</code> function fully described by roxygen
 comments may look like:</p>
@@ -2310,7 +2310,7 @@ created.</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
   <h4 class="accordion-header" id="headingSolution5"> Show me the solution </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
 <div class="accordion-body">
 <ol style="list-style-type: lower-alpha">
 <li><p>See <a href="https://r4ds.hadley.nz/workflow-style.html" class="external-link">R for
@@ -3255,7 +3255,7 @@ these details.</function_name></package_name></p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>plot_cumulative_time_in_space &lt;- function(tdf, graph_file) {</p>
 <p>time_in_space_plot &lt;- tdf |&gt; dplyr::rowwise() |&gt;
@@ -3574,7 +3574,7 @@ package next time it is built.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li>Build and install the package</li>
@@ -4375,7 +4375,7 @@ Attribution
 -->
 </section></section><section id="aio-06-code-correctness"><p>Content from <a href="06-code-correctness.html">Code correctness</a></p>
 <hr>
-<p>Last updated on 2026-01-09 |
+<p>Last updated on 2026-02-02 |
 
         <a href="https://github.com/kkh451/r_reproducibility/edit/main/episodes/06-code-correctness.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -4795,7 +4795,7 @@ minute component, and rerun our test code.</p>
 <span></span>
 <span><span class="va">test_text_to_duration_float</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="va">input_value</span> <span class="op">&lt;-</span> <span class="st">"10:15"</span></span>
-<span>  <span class="va">test_result</span> <span class="op">&lt;-</span> <span class="fu">all.equal</span><span class="op">(</span><span class="fu">text_to_duration</span><span class="op">(</span><span class="va">input_value</span><span class="op">)</span>, <span class="fl">10.25</span><span class="op">)</span> <span class="co">#</span></span>
+<span>  <span class="va">test_result</span> <span class="op">&lt;-</span> <span class="fu">text_to_duration</span><span class="op">(</span><span class="va">input_value</span><span class="op">)</span> <span class="op">==</span> <span class="fl">10.25</span> <span class="co">#</span></span>
 <span>  <span class="fu">expect_true</span><span class="op">(</span><span class="va">test_result</span><span class="op">)</span></span>
 <span><span class="op">}</span></span>
 <span></span>
