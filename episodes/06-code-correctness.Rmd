@@ -330,7 +330,7 @@ test_text_to_duration_integer <- function() {
 
 test_text_to_duration_float <- function() {
   input_value <- "10:15"
-  test_result <- all.equal(text_to_duration(input_value), 10.25) #
+  test_result <- text_to_duration(input_value) == 10.25 #
   expect_true(test_result)
 }
 
