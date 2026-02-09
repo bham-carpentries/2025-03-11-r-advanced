@@ -1055,7 +1055,7 @@ run_analysis <- function(input_file, output_file, graph_file) {
   print("--START--\n")
 
   eva_data <- read_json_to_dataframe(input_file)
-  write_csv(eva_data, output_file)
+  write.csv(eva_data, output_file)
   plot_cumulative_time_in_space(eva_data, graph_file)
 
   print("--END--\n")
