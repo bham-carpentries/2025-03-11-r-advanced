@@ -68,7 +68,7 @@ same research question and a qualitatively similar or identical answer is produc
 that are broadly applicable to different types of data or contexts.
   * For example, everything we drop - falls, therefore gravity exists.
 
-![*The Turing Way project illustration of aspects of reproducible research by Scriberia, used under a CC-BY 4.0 licence, [DOI: 10.5281/zenodo.3332807][ttw-illustrations]*](https://book.the-turing-way.org/build/reproducible-definit-dfbe86f062a65a8e4f5249be8529e953.svg){alt='Four cartoon images depicting two researchers at two machines which take in data and output the same landscape image in 4 different ways. These visually describe the four scenarios listed above.'}
+![*The Turing Way project illustration of aspects of reproducible research by Scriberia, used under a CC-BY 4.0 licence, [DOI: 10.5281/zenodo.3332807][ttw-illustrations]*](https://book.the-turing-way.org/build/reproducible-definit-6c436ab0e2a8ac53862f7c99075427cd.svgg){alt='Four cartoon images depicting two researchers at two machines which take in data and output the same landscape image in 4 different ways. These visually describe the four scenarios listed above.'}
 
 In this course we mainly address the aspect of reproducibility - i.e. enabling others to run our code to obtain the same results.
 
