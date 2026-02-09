@@ -480,7 +480,7 @@ test_that("text_to_duration returns expected ground truth values
     for typical durations with a non-zero minute component", {
   actual_result <- text_to_duration("10:15")
   expected_result <- 10.25
-  expect_true(isTRUE(all.equal(actual_result), expected_result))
+  expect_true(actual_result == expected_result)
 })
 
 test_that("text_to_duration returns expected ground truth values
@@ -741,9 +741,7 @@ Cover typical cases and edge cases.
 Hint - use the following template when writing tests:
 ```         
 test_that("MYFUNCTION ...", {
-    """
-    Test that ...   #FIXME
-    """
+    # Test that ... 
     
     # Typical value 1
     actual_result <-  _______________ #FIXME
