@@ -1025,7 +1025,7 @@ the code from being reproduced by someone else in the future?</li>
 <button class="accordion-button hint-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseHint1" aria-expanded="false" aria-controls="collapseHint1">
   <h4 class="accordion-header" id="headingHint1"> Give me a hint </h4>
 </button>
-<div id="collapseHint1" class="accordion-collapse collapse" data-bs-parent="#accordionHint1" aria-labelledby="headingHint1">
+<div id="collapseHint1" class="accordion-collapse collapse" aria-labelledby="headingHint1" data-bs-parent="#accordionHint1">
 <div class="accordion-body">
 <p>Here are some questions to help you identify barriers to
 reproducibilty in the code:</p>
@@ -1048,7 +1048,7 @@ analysis?</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <ol style="list-style-type: lower-alpha">
 <li>The code fails with errors because the file paths to the input and
@@ -2441,7 +2441,7 @@ Attribution
 </ol>
 </div></section><section id="aio-04-project-structure"><p>Content from <a href="04-project-structure.html">Project structure</a></p>
 <hr>
-<p>Last updated on 2026-01-15 |
+<p>Last updated on 2026-02-09 |
 
         <a href="https://github.com/kkh451/r_reproducibility/edit/main/episodes/04-project-structure.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 90 minutes</p>
@@ -3646,7 +3646,7 @@ package next time it is built.</p>
 <span>  <span class="fu">print</span><span class="op">(</span><span class="st">"--START--\n"</span><span class="op">)</span></span>
 <span></span>
 <span>  <span class="va">eva_data</span> <span class="op">&lt;-</span> <span class="fu">read_json_to_dataframe</span><span class="op">(</span><span class="va">input_file</span><span class="op">)</span></span>
-<span>  <span class="fu">write_csv</span><span class="op">(</span><span class="va">eva_data</span>, <span class="va">output_file</span><span class="op">)</span></span>
+<span>  <span class="fu">write.csv</span><span class="op">(</span><span class="va">eva_data</span>, <span class="va">output_file</span><span class="op">)</span></span>
 <span>  <span class="fu">plot_cumulative_time_in_space</span><span class="op">(</span><span class="va">eva_data</span>, <span class="va">graph_file</span><span class="op">)</span></span>
 <span></span>
 <span>  <span class="fu">print</span><span class="op">(</span><span class="st">"--END--\n"</span><span class="op">)</span></span>
@@ -4437,7 +4437,7 @@ Attribution
 -->
 </section></section><section id="aio-06-code-correctness"><p>Content from <a href="06-code-correctness.html">Code correctness</a></p>
 <hr>
-<p>Last updated on 2026-02-02 |
+<p>Last updated on 2026-02-09 |
 
         <a href="https://github.com/kkh451/r_reproducibility/edit/main/episodes/06-code-correctness.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 90 minutes</p>
@@ -5047,7 +5047,7 @@ syntax to highlight the logic behind our approach:</p>
 <span><span class="st">    for typical durations with a non-zero minute component"</span>, <span class="op">{</span></span>
 <span>  <span class="va">actual_result</span> <span class="op">&lt;-</span> <span class="fu">text_to_duration</span><span class="op">(</span><span class="st">"10:15"</span><span class="op">)</span></span>
 <span>  <span class="va">expected_result</span> <span class="op">&lt;-</span> <span class="fl">10.25</span></span>
-<span>  <span class="fu">expect_true</span><span class="op">(</span><span class="fu">isTRUE</span><span class="op">(</span><span class="fu">all.equal</span><span class="op">(</span><span class="va">actual_result</span><span class="op">)</span>, <span class="va">expected_result</span><span class="op">)</span><span class="op">)</span></span>
+<span>  <span class="fu">expect_true</span><span class="op">(</span><span class="va">actual_result</span> <span class="op">==</span> <span class="va">expected_result</span><span class="op">)</span></span>
 <span><span class="op">}</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">test_that</span><span class="op">(</span><span class="st">"text_to_duration returns expected ground truth values</span></span>
@@ -5351,9 +5351,7 @@ from our colleague’s new code and write some tests for it.</p>
 function. Cover typical cases and edge cases.</p>
 <p>Hint - use the following template when writing tests:</p>
 <pre><code>test_that("MYFUNCTION ...", {
-    """
-    Test that ...   #FIXME
-    """
+    # Test that ...
 
     # Typical value 1
     actual_result &lt;-  _______________ #FIXME
@@ -6699,8 +6697,8 @@ Attribution
   "url": "https://kkh451.github.io/r_reproducibility/instructor/aio.html",
   "identifier": "https://kkh451.github.io/r_reproducibility/instructor/aio.html",
   "dateCreated": "2024-09-01",
-  "dateModified": "2026-02-03",
-  "datePublished": "2026-02-03"
+  "dateModified": "2026-02-09",
+  "datePublished": "2026-02-09"
 }
 
   </script><script>
