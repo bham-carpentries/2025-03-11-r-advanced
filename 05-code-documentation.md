@@ -153,7 +153,7 @@ when they make use of our code:
 
 Please cite this compendium as:
 
-> Kopec-Harding et al, (2026). _Compendium of R code and data for an analyis of NASA extravehicular data. Accessed 02 Feb 2026. Online at <https://doi.org/xxx/xxx>
+> Kopec-Harding et al, (2026). _Compendium of R code and data for an analyis of NASA extravehicular data. Accessed 14 Apr 2026. Online at <https://doi.org/xxx/xxx>
 ```
 
 In this example, we assume that the code of the R Compendium will be
