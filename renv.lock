@@ -1,6 +1,6 @@
 {
   "R": {
-    "Version": "4.5.2",
+    "Version": "4.5.3",
     "Repositories": [
       {
         "Name": "carpentries",
@@ -1503,7 +1503,7 @@
     },
     "rlang": {
       "Package": "rlang",
-      "Version": "1.1.6",
+      "Version": "1.2.0",
       "Source": "Repository",
       "Title": "Functions for Base Types and Core R and 'Tidyverse' Features",
       "Description": "A toolbox for working with base types, core R features like the condition system, and core 'Tidyverse' features like tidy evaluation.",
@@ -1512,7 +1512,7 @@
       "ByteCompile": "true",
       "Biarch": "true",
       "Depends": [
-        "R (>= 3.5.0)"
+        "R (>= 4.0.0)"
       ],
       "Imports": [
         "utils"
@@ -1531,7 +1531,7 @@
         "pkgload",
         "rmarkdown",
         "stats",
-        "testthat (>= 3.2.0)",
+        "testthat (>= 3.3.2)",
         "tibble",
         "usethis",
         "vctrs (>= 0.2.3)",
@@ -1541,7 +1541,7 @@
         "winch"
       ],
       "Encoding": "UTF-8",
-      "RoxygenNote": "7.3.2",
+      "RoxygenNote": "7.3.3",
       "URL": "https://rlang.r-lib.org, https://github.com/r-lib/rlang",
       "BugReports": "https://github.com/r-lib/rlang/issues",
       "Config/build/compilation-database": "true",
@@ -1771,11 +1771,15 @@
       "Authors@R": "c(person(given = \"Marek\", family = \"Gagolewski\", role = c(\"aut\", \"cre\", \"cph\"), email = \"marek@gagolewski.com\", comment = c(ORCID = \"0000-0003-0637-6028\")), person(given = \"Bartek\", family = \"Tartanus\", role = \"ctb\"), person(\"Unicode, Inc. and others\", role=\"ctb\", comment = \"ICU4C source code, Unicode Character Database\") )",
       "RoxygenNote": "7.3.2",
       "Encoding": "UTF-8",
+      "Config/pak/sysreqs": "libicu-dev",
+      "Repository": "https://carpentries.r-universe.dev",
       "NeedsCompilation": "yes",
-      "Author": "Marek Gagolewski [aut, cre, cph] (<https://orcid.org/0000-0003-0637-6028>), Bartek Tartanus [ctb], Unicode, Inc. and others [ctb] (ICU4C source code, Unicode Character Database)",
+      "Author": "Marek Gagolewski [aut, cre, cph] (ORCID: <https://orcid.org/0000-0003-0637-6028>), Bartek Tartanus [ctb], Unicode, Inc. and others [ctb] (ICU4C source code, Unicode Character Database)",
       "Maintainer": "Marek Gagolewski <marek@gagolewski.com>",
-      "License_is_FOSS": "yes",
-      "Repository": "CRAN"
+      "RemoteType": "repository",
+      "RemoteUrl": "https://github.com/gagolews/stringi",
+      "RemoteRef": "v1.8.7",
+      "RemoteSha": "ed7f27ad103d38dae90ca4471b189fffe01c53fa"
     },
     "stringr": {
       "Package": "stringr",
